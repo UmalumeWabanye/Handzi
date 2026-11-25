@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Handzi brand kit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;600;700&display=swap">
+<style>
+/* VOICE: warm, practical, proud — a kit you pick up and use
+   IDEA: the tape measure — a sunshine band with ticks runs through the page
+   PICTURE: the real logo, large, on its yellow tape band
+   COLOUR and TYPE: chalk ground, charcoal ink, orange + sunshine; Bricolage 800 heads, Inter body (the brand's own)
+   LAYOUT: hero, three steps, downloads, colours, snippet, full guide */
+:root{color-scheme:light dark;--bg:light-dark(#F7F5F0,#1C1F24);--ink:light-dark(#1C1F24,#FFFFFF);--mut:light-dark(#5B6068,#A3A8B0);--card:light-dark(#FFFFFF,#33373E);--line:light-dark(#E2DED6,#454A52);--btn:light-dark(#C2410C,#EA580C);--onbtn:light-dark(#FFFFFF,#1C1F24);--link:light-dark(#C2410C,#FFC94A)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(28px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1100px;margin:0 auto}
+h1,h2{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1.05;text-wrap:balance;margin:0 0 12px}
+h1{font-size:clamp(34px,6vw,52px)}h2{font-size:clamp(26px,4vw,34px)}
+a{color:var(--link)}
+.hero{background:#FFC94A;color:#1C1F24;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:repeating-linear-gradient(90deg,#1C1F24 0 2px,transparent 2px 14px)}
+.hero .wrap{display:grid;gap:28px;align-items:center;grid-template-columns:minmax(0,1fr)}
+.hero .lg{width:min(100%,560px);height:auto;display:block}
+.hero p{font-size:18px;max-width:60ch;margin:0}
+.primary{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border:0;border-radius:10px;background:#C2410C;color:#fff;font:600 16px Inter,sans-serif;cursor:pointer}
+.primary:hover{background:#9A3412}
+button:focus-visible{outline:3px solid #EA580C;outline-offset:2px}
+.note{font-size:14px;color:inherit;opacity:.85;margin-top:10px}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));padding:0;list-style:none;counter-reset:s;margin:16px 0 0}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 18px 64px;position:relative;counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:#FFC94A;color:#1C1F24;font:800 18px/32px "Bricolage Grotesque",sans-serif;text-align:center}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));margin-top:16px}
+.logo{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.stage{height:160px;display:flex;align-items:center;justify-content:center;padding:20px}
+.stage .lg{max-width:100%;max-height:120px;width:auto;height:auto}
+figcaption{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px 10px 16px;font-weight:600;font-size:15px}
+.btns{display:flex;gap:6px}
+.dl{min-height:44px;min-width:56px;padding:0 12px;border-radius:10px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 14px Inter,sans-serif;cursor:pointer}
+.dl:hover{background:var(--ink);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.sws{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));margin-top:16px}
+.sw{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;color:var(--ink);font:14px/1.4 Inter,sans-serif;cursor:pointer;display:flex;flex-direction:column;gap:2px}
+.chipc{height:64px;border-radius:10px;margin-bottom:8px;border:1px solid var(--line)}
+.hex{font-variant-numeric:tabular-nums;color:var(--mut)}.use{color:var(--mut);font-size:13px}
+pre{background:#1C1F24;color:#F7F5F0;border-radius:16px;padding:18px;overflow-x:auto;font:13px/1.6 ui-monospace,Menlo,monospace;white-space:pre-wrap}
+.row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.guide{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,36px)}
+.guide h1{font-size:32px}.guide h2{font-size:26px;margin-top:36px}.guide h3{font-size:18px;margin:24px 0 8px}
+.guide table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow-x:auto}
+.guide th,.guide td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.guide code{background:light-dark(#F2EFE8,#1C1F24);padding:1px 5px;border-radius:5px;font-size:.9em;overflow-wrap:anywhere}
+.guide blockquote{margin:0;padding:12px 16px;background:#FFC94A;color:#1C1F24;border-radius:10px}
+#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#1C1F24;color:#fff;padding:12px 18px;border-radius:10px;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw}
+#toast.on{opacity:1}
+@media(min-width:860px){.hero .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){#toast{transition:none}}
+</style></head><body>
+<header class="band hero"><div class="wrap">
+<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 198" width="552" height="198" role="img" class="lg" aria-label="Handzi">
+<rect x="156.0" y="32.0" width="362.0" height="134.0" rx="4" fill="#F7F5F0"/><rect x="156.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="172.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="188.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="204.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="220.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="236.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="252.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="268.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="284.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="300.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="316.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="332.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="348.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="364.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="380.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="396.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="412.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="428.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="444.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="460.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="476.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="492.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="508.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/>
+<path d="M200.4 136.0V106.4V65.39999999999999H216.5V79.6Q216.5 81.6 216.3 84.69999999999999Q216.1 87.8 215.7 91.19999999999999Q215.3 94.6 214.85000000000002 97.8Q214.4 101.0 214.1 103.3H215.4Q216.4 96.0 218.60000000000002 91.25Q220.8 86.5 224.45 84.15Q228.1 81.8 233.5 81.8Q242.3 81.8 246.55 88.0Q250.8 94.19999999999999 250.8 106.8V136.0H234.6V108.1Q234.6 101.69999999999999 232.85 98.69999999999999Q231.1 95.69999999999999 227.3 95.69999999999999Q224.1 95.69999999999999 221.7 97.94999999999999Q219.3 100.19999999999999 217.9 104.8Q216.5 109.4 216.5 116.3V136.0Z M268.5 137.4Q264.4 137.4 260.85 135.9Q257.3 134.4 255.1 131.2Q252.89999999999998 128.0 252.89999999999998 122.8Q252.89999999999998 118.0 254.79999999999998 115.0Q256.7 112.0 259.9 110.2Q263.09999999999997 108.4 267.2 107.35Q271.3 106.3 275.59999999999997 105.6Q280.2 104.7 282.6 104.15Q285.0 103.6 285.95 102.75Q286.9 101.9 286.9 100.4Q286.9 97.6 284.85 96.0Q282.8 94.4 279.2 94.4Q276.8 94.4 274.6 95.25Q272.4 96.1 270.95 98.1Q269.5 100.1 269.3 103.6L255.0 101.69999999999999Q255.2 96.0 257.4 92.15Q259.59999999999997 88.3 263.15 86.05Q266.7 83.8 271.0 82.8Q275.3 81.8 279.7 81.8Q287.7 81.8 292.75 84.65Q297.8 87.5 300.25 93.0Q302.7 98.5 302.7 106.5V115.5Q302.7 118.9 302.75 122.35Q302.8 125.8 302.9 129.2Q303.0 132.6 303.1 136.0H289.0Q288.9 132.8 288.79999999999995 129.25Q288.7 125.7 288.59999999999997 121.8H287.59999999999997Q286.9 126.1 284.35 129.64999999999998Q281.8 133.2 277.75 135.3Q273.7 137.4 268.5 137.4ZM275.4 125.7Q277.09999999999997 125.7 279.04999999999995 125.05000000000001Q281.0 124.4 282.7 123.0Q284.4 121.6 285.6 119.25Q286.8 116.9 287.0 113.5V109.5H289.5Q288.4 110.7 286.4 111.5Q284.4 112.3 282.1 112.69999999999999Q279.8 113.1 277.5 113.55Q275.2 114.0 273.25 114.75Q271.3 115.5 270.1 116.75Q268.9 118.0 268.9 120.2Q268.9 122.8 270.79999999999995 124.25Q272.7 125.7 275.4 125.7Z M306.9 136.0V105.6V83.19999999999999H320.3L320.4 103.0H321.6Q322.4 95.8 324.5 91.1Q326.6 86.4 330.3 84.1Q334.0 81.8 339.5 81.8Q348.3 81.8 352.8 87.75Q357.3 93.69999999999999 357.3 105.8V136.0H341.1V107.8Q341.1 101.6 339.25 98.6Q337.4 95.6 333.5 95.6Q330.3 95.6 327.95000000000005 97.75Q325.6 99.9 324.3 104.35Q323.0 108.8 323.0 115.8V136.0Z M380.7 137.4Q374.8 137.4 370.1 134.25Q365.4 131.1 362.7 124.8Q360.0 118.5 360.0 109.1Q360.0 100.4 362.4 94.3Q364.8 88.19999999999999 369.3 85.05Q373.8 81.9 380.1 81.9Q384.8 81.9 388.3 83.75Q391.8 85.6 394.1 89.55Q396.4 93.5 397.5 99.8H398.8Q398.3 96.4 397.75 93.15Q397.2 89.9 396.95 86.95Q396.7 84.0 396.7 81.5V65.39999999999999H412.9V115.3V136.0H399.0V119.9H397.8Q396.7 125.8 394.45 129.65Q392.2 133.5 388.79999999999995 135.45Q385.4 137.4 380.7 137.4ZM386.5 124.5Q388.7 124.5 390.6 123.5Q392.5 122.5 393.9 120.6Q395.3 118.7 396.05 116.1Q396.8 113.5 396.8 110.2V109.1Q396.8 106.5 396.25 104.25Q395.7 102.0 394.7 100.3Q393.7 98.6 392.35 97.44999999999999Q391.0 96.3 389.45 95.75Q387.9 95.19999999999999 386.3 95.19999999999999Q383.1 95.19999999999999 380.95000000000005 97.19999999999999Q378.8 99.19999999999999 377.70000000000005 102.55Q376.6 105.9 376.6 109.9Q376.6 114.0 377.8 117.3Q379.0 120.6 381.2 122.55Q383.4 124.5 386.5 124.5Z M415.6 136.0V122.5L441.00000000000006 97.0V96.1H416.1V83.19999999999999H460.40000000000003V96.8L434.90000000000003 122.3V123.0H460.70000000000005V136.0Z M463.5 136.0V83.19999999999999H479.6V136.0ZM471.5 78.30000000000001Q466.9 78.30000000000001 464.45 76.4Q462.0 74.5 462.0 70.8Q462.0 67.0 464.45 65.05000000000001Q466.9 63.10000000000001 471.5 63.10000000000001Q476.2 63.10000000000001 478.65 65.05000000000001Q481.1 67.0 481.1 70.8Q481.1 74.4 478.65 76.35000000000001Q476.2 78.30000000000001 471.5 78.30000000000001Z" fill="#1C1F24"/>
+<rect x="518.0" y="41.5" width="10.0" height="115.0" rx="2" fill="#1C1F24"/>
+<g transform="translate(24.00 24.00) scale(1.3636)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#EA580C"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g></svg></div>
+<div><h1>Handzi brand kit</h1>
+<p>Everything for your app’s look in one place: logos, app icon, colours, fonts, the full CI guide and the instructions for Claude in VS Code.</p>
+<p style="margin-top:18px"><button class="primary" id="zipAll">Download the full kit (.zip)</button></p>
+<p class="note">Unzip it on your computer, not your phone. Everything else on this page works anywhere.</p></div>
+</div></header>
+
+<section class="band"><div class="wrap">
+<h2>Use it with Claude in VS Code</h2>
+<ol class="steps">
+<li><b>Download the kit on your computer</b> and unzip it into the main folder of your app project. You’ll get a folder called <code>handzi-brand</code>.</li>
+<li><b>Create <code>CLAUDE.md</code></b> in that same main folder and paste in the brand instructions below. Claude reads this file automatically.</li>
+<li><b>Ask Claude:</b> “Apply the Handzi brand kit: set up the tokens, fonts, app icon and favicon, then restyle the screens following handzi-brand/BRAND.md.”</li>
+</ol>
+</div></section>
+
+<section class="band" style="padding-top:0"><div class="wrap">
+<div class="row"><h2>CLAUDE.md instructions</h2><button class="dl" id="copySnip">Copy</button></div>
+<pre id="snip">## Brand: Handzi
+
+This app is **Handzi**, a South African marketplace where handymen and tradespeople show their work and clients hire them. Tagline: &quot;Skilled hands, one tap away.&quot;
+
+All UI must follow the brand kit in `handzi-brand/`:
+- **Read `handzi-brand/BRAND.md` before any UI, styling, copy or asset work**, especially section 12 (&quot;Rules for AI coding assistants&quot;).
+- Design tokens: `handzi-brand/tokens/tokens.json` (source of truth), `tokens.css` (web), `tailwind.preset.js` (Tailwind).
+- Logos and icons: `handzi-brand/logo/` (SVG) and `handzi-brand/logo/png/`. Use the files as-is; never redraw or recolour the logo.
+- Fonts: Bricolage Grotesque 800 for headings, Inter for everything else (`handzi-brand/fonts/` or Google Fonts).
+
+Key rules (summary):
+- No hard-coded colours, font sizes or spacing in components: use tokens.
+- Primary buttons: Brick #C2410C with white text. Safety Orange #EA580C is for the logo, graphics and large text only.
+- 4px spacing grid, 16px screen padding, radius 10 (buttons/inputs) and 16 (cards), touch targets ≥ 48px.
+- UI copy in warm, clear South African English; prices like &quot;R1 200&quot;; sentence case.
+- WCAG AA contrast, labels on inputs, alt text, visible focus ring.
+- If the brand kit doesn&#x27;t cover something, use the closest token and add `// TODO(brand):`.</pre>
+</div></section>
+
+<section class="band" style="padding-top:0"><div class="wrap">
+<h2>Logos</h2><p style="color:var(--mut);margin:0">Pick the version that matches the background. Tap SVG for the sharp, scalable file or PNG for a picture file.</p>
+<div class="grid"><figure class="logo"><div class="stage" style="background:#F7F5F0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 198" width="552" height="198" role="img" class="lg" aria-label="Handzi">
+<rect x="156.0" y="32.0" width="362.0" height="134.0" rx="4" fill="#FFC94A"/><rect x="156.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="172.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="188.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="204.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="220.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="236.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="252.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="268.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="284.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="300.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="316.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="332.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="348.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="364.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="380.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="396.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="412.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="428.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="444.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="460.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="476.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="492.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="508.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/>
+<path d="M200.4 136.0V106.4V65.39999999999999H216.5V79.6Q216.5 81.6 216.3 84.69999999999999Q216.1 87.8 215.7 91.19999999999999Q215.3 94.6 214.85000000000002 97.8Q214.4 101.0 214.1 103.3H215.4Q216.4 96.0 218.60000000000002 91.25Q220.8 86.5 224.45 84.15Q228.1 81.8 233.5 81.8Q242.3 81.8 246.55 88.0Q250.8 94.19999999999999 250.8 106.8V136.0H234.6V108.1Q234.6 101.69999999999999 232.85 98.69999999999999Q231.1 95.69999999999999 227.3 95.69999999999999Q224.1 95.69999999999999 221.7 97.94999999999999Q219.3 100.19999999999999 217.9 104.8Q216.5 109.4 216.5 116.3V136.0Z M268.5 137.4Q264.4 137.4 260.85 135.9Q257.3 134.4 255.1 131.2Q252.89999999999998 128.0 252.89999999999998 122.8Q252.89999999999998 118.0 254.79999999999998 115.0Q256.7 112.0 259.9 110.2Q263.09999999999997 108.4 267.2 107.35Q271.3 106.3 275.59999999999997 105.6Q280.2 104.7 282.6 104.15Q285.0 103.6 285.95 102.75Q286.9 101.9 286.9 100.4Q286.9 97.6 284.85 96.0Q282.8 94.4 279.2 94.4Q276.8 94.4 274.6 95.25Q272.4 96.1 270.95 98.1Q269.5 100.1 269.3 103.6L255.0 101.69999999999999Q255.2 96.0 257.4 92.15Q259.59999999999997 88.3 263.15 86.05Q266.7 83.8 271.0 82.8Q275.3 81.8 279.7 81.8Q287.7 81.8 292.75 84.65Q297.8 87.5 300.25 93.0Q302.7 98.5 302.7 106.5V115.5Q302.7 118.9 302.75 122.35Q302.8 125.8 302.9 129.2Q303.0 132.6 303.1 136.0H289.0Q288.9 132.8 288.79999999999995 129.25Q288.7 125.7 288.59999999999997 121.8H287.59999999999997Q286.9 126.1 284.35 129.64999999999998Q281.8 133.2 277.75 135.3Q273.7 137.4 268.5 137.4ZM275.4 125.7Q277.09999999999997 125.7 279.04999999999995 125.05000000000001Q281.0 124.4 282.7 123.0Q284.4 121.6 285.6 119.25Q286.8 116.9 287.0 113.5V109.5H289.5Q288.4 110.7 286.4 111.5Q284.4 112.3 282.1 112.69999999999999Q279.8 113.1 277.5 113.55Q275.2 114.0 273.25 114.75Q271.3 115.5 270.1 116.75Q268.9 118.0 268.9 120.2Q268.9 122.8 270.79999999999995 124.25Q272.7 125.7 275.4 125.7Z M306.9 136.0V105.6V83.19999999999999H320.3L320.4 103.0H321.6Q322.4 95.8 324.5 91.1Q326.6 86.4 330.3 84.1Q334.0 81.8 339.5 81.8Q348.3 81.8 352.8 87.75Q357.3 93.69999999999999 357.3 105.8V136.0H341.1V107.8Q341.1 101.6 339.25 98.6Q337.4 95.6 333.5 95.6Q330.3 95.6 327.95000000000005 97.75Q325.6 99.9 324.3 104.35Q323.0 108.8 323.0 115.8V136.0Z M380.7 137.4Q374.8 137.4 370.1 134.25Q365.4 131.1 362.7 124.8Q360.0 118.5 360.0 109.1Q360.0 100.4 362.4 94.3Q364.8 88.19999999999999 369.3 85.05Q373.8 81.9 380.1 81.9Q384.8 81.9 388.3 83.75Q391.8 85.6 394.1 89.55Q396.4 93.5 397.5 99.8H398.8Q398.3 96.4 397.75 93.15Q397.2 89.9 396.95 86.95Q396.7 84.0 396.7 81.5V65.39999999999999H412.9V115.3V136.0H399.0V119.9H397.8Q396.7 125.8 394.45 129.65Q392.2 133.5 388.79999999999995 135.45Q385.4 137.4 380.7 137.4ZM386.5 124.5Q388.7 124.5 390.6 123.5Q392.5 122.5 393.9 120.6Q395.3 118.7 396.05 116.1Q396.8 113.5 396.8 110.2V109.1Q396.8 106.5 396.25 104.25Q395.7 102.0 394.7 100.3Q393.7 98.6 392.35 97.44999999999999Q391.0 96.3 389.45 95.75Q387.9 95.19999999999999 386.3 95.19999999999999Q383.1 95.19999999999999 380.95000000000005 97.19999999999999Q378.8 99.19999999999999 377.70000000000005 102.55Q376.6 105.9 376.6 109.9Q376.6 114.0 377.8 117.3Q379.0 120.6 381.2 122.55Q383.4 124.5 386.5 124.5Z M415.6 136.0V122.5L441.00000000000006 97.0V96.1H416.1V83.19999999999999H460.40000000000003V96.8L434.90000000000003 122.3V123.0H460.70000000000005V136.0Z M463.5 136.0V83.19999999999999H479.6V136.0ZM471.5 78.30000000000001Q466.9 78.30000000000001 464.45 76.4Q462.0 74.5 462.0 70.8Q462.0 67.0 464.45 65.05000000000001Q466.9 63.10000000000001 471.5 63.10000000000001Q476.2 63.10000000000001 478.65 65.05000000000001Q481.1 67.0 481.1 70.8Q481.1 74.4 478.65 76.35000000000001Q476.2 78.30000000000001 471.5 78.30000000000001Z" fill="#1C1F24"/>
+<rect x="518.0" y="41.5" width="10.0" height="115.0" rx="2" fill="#1C1F24"/>
+<g transform="translate(24.00 24.00) scale(1.3636)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#EA580C"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g></svg></div><figcaption><span>Primary</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-logo-primary.svg">SVG</button><button class="dl" data-f="kit/logo/png/logo-primary-1200.png">PNG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#1C1F24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 198" width="552" height="198" role="img" class="lg" aria-label="Handzi">
+<rect x="156.0" y="32.0" width="362.0" height="134.0" rx="4" fill="#FFC94A"/><rect x="156.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="172.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="188.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="204.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="220.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="236.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="252.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="268.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="284.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="300.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="316.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="332.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="348.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="364.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="380.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="396.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="412.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="428.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="444.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="460.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="476.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="492.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="508.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/>
+<path d="M200.4 136.0V106.4V65.39999999999999H216.5V79.6Q216.5 81.6 216.3 84.69999999999999Q216.1 87.8 215.7 91.19999999999999Q215.3 94.6 214.85000000000002 97.8Q214.4 101.0 214.1 103.3H215.4Q216.4 96.0 218.60000000000002 91.25Q220.8 86.5 224.45 84.15Q228.1 81.8 233.5 81.8Q242.3 81.8 246.55 88.0Q250.8 94.19999999999999 250.8 106.8V136.0H234.6V108.1Q234.6 101.69999999999999 232.85 98.69999999999999Q231.1 95.69999999999999 227.3 95.69999999999999Q224.1 95.69999999999999 221.7 97.94999999999999Q219.3 100.19999999999999 217.9 104.8Q216.5 109.4 216.5 116.3V136.0Z M268.5 137.4Q264.4 137.4 260.85 135.9Q257.3 134.4 255.1 131.2Q252.89999999999998 128.0 252.89999999999998 122.8Q252.89999999999998 118.0 254.79999999999998 115.0Q256.7 112.0 259.9 110.2Q263.09999999999997 108.4 267.2 107.35Q271.3 106.3 275.59999999999997 105.6Q280.2 104.7 282.6 104.15Q285.0 103.6 285.95 102.75Q286.9 101.9 286.9 100.4Q286.9 97.6 284.85 96.0Q282.8 94.4 279.2 94.4Q276.8 94.4 274.6 95.25Q272.4 96.1 270.95 98.1Q269.5 100.1 269.3 103.6L255.0 101.69999999999999Q255.2 96.0 257.4 92.15Q259.59999999999997 88.3 263.15 86.05Q266.7 83.8 271.0 82.8Q275.3 81.8 279.7 81.8Q287.7 81.8 292.75 84.65Q297.8 87.5 300.25 93.0Q302.7 98.5 302.7 106.5V115.5Q302.7 118.9 302.75 122.35Q302.8 125.8 302.9 129.2Q303.0 132.6 303.1 136.0H289.0Q288.9 132.8 288.79999999999995 129.25Q288.7 125.7 288.59999999999997 121.8H287.59999999999997Q286.9 126.1 284.35 129.64999999999998Q281.8 133.2 277.75 135.3Q273.7 137.4 268.5 137.4ZM275.4 125.7Q277.09999999999997 125.7 279.04999999999995 125.05000000000001Q281.0 124.4 282.7 123.0Q284.4 121.6 285.6 119.25Q286.8 116.9 287.0 113.5V109.5H289.5Q288.4 110.7 286.4 111.5Q284.4 112.3 282.1 112.69999999999999Q279.8 113.1 277.5 113.55Q275.2 114.0 273.25 114.75Q271.3 115.5 270.1 116.75Q268.9 118.0 268.9 120.2Q268.9 122.8 270.79999999999995 124.25Q272.7 125.7 275.4 125.7Z M306.9 136.0V105.6V83.19999999999999H320.3L320.4 103.0H321.6Q322.4 95.8 324.5 91.1Q326.6 86.4 330.3 84.1Q334.0 81.8 339.5 81.8Q348.3 81.8 352.8 87.75Q357.3 93.69999999999999 357.3 105.8V136.0H341.1V107.8Q341.1 101.6 339.25 98.6Q337.4 95.6 333.5 95.6Q330.3 95.6 327.95000000000005 97.75Q325.6 99.9 324.3 104.35Q323.0 108.8 323.0 115.8V136.0Z M380.7 137.4Q374.8 137.4 370.1 134.25Q365.4 131.1 362.7 124.8Q360.0 118.5 360.0 109.1Q360.0 100.4 362.4 94.3Q364.8 88.19999999999999 369.3 85.05Q373.8 81.9 380.1 81.9Q384.8 81.9 388.3 83.75Q391.8 85.6 394.1 89.55Q396.4 93.5 397.5 99.8H398.8Q398.3 96.4 397.75 93.15Q397.2 89.9 396.95 86.95Q396.7 84.0 396.7 81.5V65.39999999999999H412.9V115.3V136.0H399.0V119.9H397.8Q396.7 125.8 394.45 129.65Q392.2 133.5 388.79999999999995 135.45Q385.4 137.4 380.7 137.4ZM386.5 124.5Q388.7 124.5 390.6 123.5Q392.5 122.5 393.9 120.6Q395.3 118.7 396.05 116.1Q396.8 113.5 396.8 110.2V109.1Q396.8 106.5 396.25 104.25Q395.7 102.0 394.7 100.3Q393.7 98.6 392.35 97.44999999999999Q391.0 96.3 389.45 95.75Q387.9 95.19999999999999 386.3 95.19999999999999Q383.1 95.19999999999999 380.95000000000005 97.19999999999999Q378.8 99.19999999999999 377.70000000000005 102.55Q376.6 105.9 376.6 109.9Q376.6 114.0 377.8 117.3Q379.0 120.6 381.2 122.55Q383.4 124.5 386.5 124.5Z M415.6 136.0V122.5L441.00000000000006 97.0V96.1H416.1V83.19999999999999H460.40000000000003V96.8L434.90000000000003 122.3V123.0H460.70000000000005V136.0Z M463.5 136.0V83.19999999999999H479.6V136.0ZM471.5 78.30000000000001Q466.9 78.30000000000001 464.45 76.4Q462.0 74.5 462.0 70.8Q462.0 67.0 464.45 65.05000000000001Q466.9 63.10000000000001 471.5 63.10000000000001Q476.2 63.10000000000001 478.65 65.05000000000001Q481.1 67.0 481.1 70.8Q481.1 74.4 478.65 76.35000000000001Q476.2 78.30000000000001 471.5 78.30000000000001Z" fill="#1C1F24"/>
+<rect x="518.0" y="41.5" width="10.0" height="115.0" rx="2" fill="#1C1F24"/>
+<g transform="translate(24.00 24.00) scale(1.3636)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#EA580C"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g></svg></div><figcaption><span>On dark</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-logo-on-dark.svg">SVG</button><button class="dl" data-f="kit/logo/png/logo-on-dark-1200.png">PNG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#EA580C"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 198" width="552" height="198" role="img" class="lg" aria-label="Handzi">
+<rect x="156.0" y="32.0" width="362.0" height="134.0" rx="4" fill="#FFC94A"/><rect x="156.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="172.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="188.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="204.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="220.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="236.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="252.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="268.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="284.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="300.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="316.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="332.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="348.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="364.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="380.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="396.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="412.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="428.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="444.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="460.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="476.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="492.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="508.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/>
+<path d="M200.4 136.0V106.4V65.39999999999999H216.5V79.6Q216.5 81.6 216.3 84.69999999999999Q216.1 87.8 215.7 91.19999999999999Q215.3 94.6 214.85000000000002 97.8Q214.4 101.0 214.1 103.3H215.4Q216.4 96.0 218.60000000000002 91.25Q220.8 86.5 224.45 84.15Q228.1 81.8 233.5 81.8Q242.3 81.8 246.55 88.0Q250.8 94.19999999999999 250.8 106.8V136.0H234.6V108.1Q234.6 101.69999999999999 232.85 98.69999999999999Q231.1 95.69999999999999 227.3 95.69999999999999Q224.1 95.69999999999999 221.7 97.94999999999999Q219.3 100.19999999999999 217.9 104.8Q216.5 109.4 216.5 116.3V136.0Z M268.5 137.4Q264.4 137.4 260.85 135.9Q257.3 134.4 255.1 131.2Q252.89999999999998 128.0 252.89999999999998 122.8Q252.89999999999998 118.0 254.79999999999998 115.0Q256.7 112.0 259.9 110.2Q263.09999999999997 108.4 267.2 107.35Q271.3 106.3 275.59999999999997 105.6Q280.2 104.7 282.6 104.15Q285.0 103.6 285.95 102.75Q286.9 101.9 286.9 100.4Q286.9 97.6 284.85 96.0Q282.8 94.4 279.2 94.4Q276.8 94.4 274.6 95.25Q272.4 96.1 270.95 98.1Q269.5 100.1 269.3 103.6L255.0 101.69999999999999Q255.2 96.0 257.4 92.15Q259.59999999999997 88.3 263.15 86.05Q266.7 83.8 271.0 82.8Q275.3 81.8 279.7 81.8Q287.7 81.8 292.75 84.65Q297.8 87.5 300.25 93.0Q302.7 98.5 302.7 106.5V115.5Q302.7 118.9 302.75 122.35Q302.8 125.8 302.9 129.2Q303.0 132.6 303.1 136.0H289.0Q288.9 132.8 288.79999999999995 129.25Q288.7 125.7 288.59999999999997 121.8H287.59999999999997Q286.9 126.1 284.35 129.64999999999998Q281.8 133.2 277.75 135.3Q273.7 137.4 268.5 137.4ZM275.4 125.7Q277.09999999999997 125.7 279.04999999999995 125.05000000000001Q281.0 124.4 282.7 123.0Q284.4 121.6 285.6 119.25Q286.8 116.9 287.0 113.5V109.5H289.5Q288.4 110.7 286.4 111.5Q284.4 112.3 282.1 112.69999999999999Q279.8 113.1 277.5 113.55Q275.2 114.0 273.25 114.75Q271.3 115.5 270.1 116.75Q268.9 118.0 268.9 120.2Q268.9 122.8 270.79999999999995 124.25Q272.7 125.7 275.4 125.7Z M306.9 136.0V105.6V83.19999999999999H320.3L320.4 103.0H321.6Q322.4 95.8 324.5 91.1Q326.6 86.4 330.3 84.1Q334.0 81.8 339.5 81.8Q348.3 81.8 352.8 87.75Q357.3 93.69999999999999 357.3 105.8V136.0H341.1V107.8Q341.1 101.6 339.25 98.6Q337.4 95.6 333.5 95.6Q330.3 95.6 327.95000000000005 97.75Q325.6 99.9 324.3 104.35Q323.0 108.8 323.0 115.8V136.0Z M380.7 137.4Q374.8 137.4 370.1 134.25Q365.4 131.1 362.7 124.8Q360.0 118.5 360.0 109.1Q360.0 100.4 362.4 94.3Q364.8 88.19999999999999 369.3 85.05Q373.8 81.9 380.1 81.9Q384.8 81.9 388.3 83.75Q391.8 85.6 394.1 89.55Q396.4 93.5 397.5 99.8H398.8Q398.3 96.4 397.75 93.15Q397.2 89.9 396.95 86.95Q396.7 84.0 396.7 81.5V65.39999999999999H412.9V115.3V136.0H399.0V119.9H397.8Q396.7 125.8 394.45 129.65Q392.2 133.5 388.79999999999995 135.45Q385.4 137.4 380.7 137.4ZM386.5 124.5Q388.7 124.5 390.6 123.5Q392.5 122.5 393.9 120.6Q395.3 118.7 396.05 116.1Q396.8 113.5 396.8 110.2V109.1Q396.8 106.5 396.25 104.25Q395.7 102.0 394.7 100.3Q393.7 98.6 392.35 97.44999999999999Q391.0 96.3 389.45 95.75Q387.9 95.19999999999999 386.3 95.19999999999999Q383.1 95.19999999999999 380.95000000000005 97.19999999999999Q378.8 99.19999999999999 377.70000000000005 102.55Q376.6 105.9 376.6 109.9Q376.6 114.0 377.8 117.3Q379.0 120.6 381.2 122.55Q383.4 124.5 386.5 124.5Z M415.6 136.0V122.5L441.00000000000006 97.0V96.1H416.1V83.19999999999999H460.40000000000003V96.8L434.90000000000003 122.3V123.0H460.70000000000005V136.0Z M463.5 136.0V83.19999999999999H479.6V136.0ZM471.5 78.30000000000001Q466.9 78.30000000000001 464.45 76.4Q462.0 74.5 462.0 70.8Q462.0 67.0 464.45 65.05000000000001Q466.9 63.10000000000001 471.5 63.10000000000001Q476.2 63.10000000000001 478.65 65.05000000000001Q481.1 67.0 481.1 70.8Q481.1 74.4 478.65 76.35000000000001Q476.2 78.30000000000001 471.5 78.30000000000001Z" fill="#1C1F24"/>
+<rect x="518.0" y="41.5" width="10.0" height="115.0" rx="2" fill="#1C1F24"/>
+<g transform="translate(24.00 24.00) scale(1.3636)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#1C1F24"/><circle cx="55" cy="55" r="26" fill="none" stroke="#FFC94A" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#FFC94A"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#FFC94A"/></g></svg></div><figcaption><span>On orange</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-logo-on-orange.svg">SVG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#FFC94A"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 198" width="552" height="198" role="img" class="lg" aria-label="Handzi">
+<rect x="156.0" y="32.0" width="362.0" height="134.0" rx="4" fill="#F7F5F0"/><rect x="156.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="172.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="188.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="204.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="220.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="236.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="252.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="268.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="284.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="300.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="316.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="332.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="348.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="364.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="380.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="396.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="412.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="428.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="444.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="460.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="476.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="492.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="508.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/>
+<path d="M200.4 136.0V106.4V65.39999999999999H216.5V79.6Q216.5 81.6 216.3 84.69999999999999Q216.1 87.8 215.7 91.19999999999999Q215.3 94.6 214.85000000000002 97.8Q214.4 101.0 214.1 103.3H215.4Q216.4 96.0 218.60000000000002 91.25Q220.8 86.5 224.45 84.15Q228.1 81.8 233.5 81.8Q242.3 81.8 246.55 88.0Q250.8 94.19999999999999 250.8 106.8V136.0H234.6V108.1Q234.6 101.69999999999999 232.85 98.69999999999999Q231.1 95.69999999999999 227.3 95.69999999999999Q224.1 95.69999999999999 221.7 97.94999999999999Q219.3 100.19999999999999 217.9 104.8Q216.5 109.4 216.5 116.3V136.0Z M268.5 137.4Q264.4 137.4 260.85 135.9Q257.3 134.4 255.1 131.2Q252.89999999999998 128.0 252.89999999999998 122.8Q252.89999999999998 118.0 254.79999999999998 115.0Q256.7 112.0 259.9 110.2Q263.09999999999997 108.4 267.2 107.35Q271.3 106.3 275.59999999999997 105.6Q280.2 104.7 282.6 104.15Q285.0 103.6 285.95 102.75Q286.9 101.9 286.9 100.4Q286.9 97.6 284.85 96.0Q282.8 94.4 279.2 94.4Q276.8 94.4 274.6 95.25Q272.4 96.1 270.95 98.1Q269.5 100.1 269.3 103.6L255.0 101.69999999999999Q255.2 96.0 257.4 92.15Q259.59999999999997 88.3 263.15 86.05Q266.7 83.8 271.0 82.8Q275.3 81.8 279.7 81.8Q287.7 81.8 292.75 84.65Q297.8 87.5 300.25 93.0Q302.7 98.5 302.7 106.5V115.5Q302.7 118.9 302.75 122.35Q302.8 125.8 302.9 129.2Q303.0 132.6 303.1 136.0H289.0Q288.9 132.8 288.79999999999995 129.25Q288.7 125.7 288.59999999999997 121.8H287.59999999999997Q286.9 126.1 284.35 129.64999999999998Q281.8 133.2 277.75 135.3Q273.7 137.4 268.5 137.4ZM275.4 125.7Q277.09999999999997 125.7 279.04999999999995 125.05000000000001Q281.0 124.4 282.7 123.0Q284.4 121.6 285.6 119.25Q286.8 116.9 287.0 113.5V109.5H289.5Q288.4 110.7 286.4 111.5Q284.4 112.3 282.1 112.69999999999999Q279.8 113.1 277.5 113.55Q275.2 114.0 273.25 114.75Q271.3 115.5 270.1 116.75Q268.9 118.0 268.9 120.2Q268.9 122.8 270.79999999999995 124.25Q272.7 125.7 275.4 125.7Z M306.9 136.0V105.6V83.19999999999999H320.3L320.4 103.0H321.6Q322.4 95.8 324.5 91.1Q326.6 86.4 330.3 84.1Q334.0 81.8 339.5 81.8Q348.3 81.8 352.8 87.75Q357.3 93.69999999999999 357.3 105.8V136.0H341.1V107.8Q341.1 101.6 339.25 98.6Q337.4 95.6 333.5 95.6Q330.3 95.6 327.95000000000005 97.75Q325.6 99.9 324.3 104.35Q323.0 108.8 323.0 115.8V136.0Z M380.7 137.4Q374.8 137.4 370.1 134.25Q365.4 131.1 362.7 124.8Q360.0 118.5 360.0 109.1Q360.0 100.4 362.4 94.3Q364.8 88.19999999999999 369.3 85.05Q373.8 81.9 380.1 81.9Q384.8 81.9 388.3 83.75Q391.8 85.6 394.1 89.55Q396.4 93.5 397.5 99.8H398.8Q398.3 96.4 397.75 93.15Q397.2 89.9 396.95 86.95Q396.7 84.0 396.7 81.5V65.39999999999999H412.9V115.3V136.0H399.0V119.9H397.8Q396.7 125.8 394.45 129.65Q392.2 133.5 388.79999999999995 135.45Q385.4 137.4 380.7 137.4ZM386.5 124.5Q388.7 124.5 390.6 123.5Q392.5 122.5 393.9 120.6Q395.3 118.7 396.05 116.1Q396.8 113.5 396.8 110.2V109.1Q396.8 106.5 396.25 104.25Q395.7 102.0 394.7 100.3Q393.7 98.6 392.35 97.44999999999999Q391.0 96.3 389.45 95.75Q387.9 95.19999999999999 386.3 95.19999999999999Q383.1 95.19999999999999 380.95000000000005 97.19999999999999Q378.8 99.19999999999999 377.70000000000005 102.55Q376.6 105.9 376.6 109.9Q376.6 114.0 377.8 117.3Q379.0 120.6 381.2 122.55Q383.4 124.5 386.5 124.5Z M415.6 136.0V122.5L441.00000000000006 97.0V96.1H416.1V83.19999999999999H460.40000000000003V96.8L434.90000000000003 122.3V123.0H460.70000000000005V136.0Z M463.5 136.0V83.19999999999999H479.6V136.0ZM471.5 78.30000000000001Q466.9 78.30000000000001 464.45 76.4Q462.0 74.5 462.0 70.8Q462.0 67.0 464.45 65.05000000000001Q466.9 63.10000000000001 471.5 63.10000000000001Q476.2 63.10000000000001 478.65 65.05000000000001Q481.1 67.0 481.1 70.8Q481.1 74.4 478.65 76.35000000000001Q476.2 78.30000000000001 471.5 78.30000000000001Z" fill="#1C1F24"/>
+<rect x="518.0" y="41.5" width="10.0" height="115.0" rx="2" fill="#1C1F24"/>
+<g transform="translate(24.00 24.00) scale(1.3636)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#EA580C"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g></svg></div><figcaption><span>On sunshine</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-logo-on-sunshine.svg">SVG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#FFFFFF"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 198" width="552" height="198" role="img" class="lg" aria-label="Handzi">
+<rect x="156.0" y="32.0" width="362.0" height="134.0" rx="4" fill="#FFFFFF" stroke="#1C1F24" stroke-width="3"/><rect x="156.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="172.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="188.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="204.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="220.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="236.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="252.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="268.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="284.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="300.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="316.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="332.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="348.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="364.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="380.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="396.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="412.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="428.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="444.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="460.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="476.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="492.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/><rect x="508.0" y="32.0" width="2" height="16.0" fill="#1C1F24"/>
+<path d="M200.4 136.0V106.4V65.39999999999999H216.5V79.6Q216.5 81.6 216.3 84.69999999999999Q216.1 87.8 215.7 91.19999999999999Q215.3 94.6 214.85000000000002 97.8Q214.4 101.0 214.1 103.3H215.4Q216.4 96.0 218.60000000000002 91.25Q220.8 86.5 224.45 84.15Q228.1 81.8 233.5 81.8Q242.3 81.8 246.55 88.0Q250.8 94.19999999999999 250.8 106.8V136.0H234.6V108.1Q234.6 101.69999999999999 232.85 98.69999999999999Q231.1 95.69999999999999 227.3 95.69999999999999Q224.1 95.69999999999999 221.7 97.94999999999999Q219.3 100.19999999999999 217.9 104.8Q216.5 109.4 216.5 116.3V136.0Z M268.5 137.4Q264.4 137.4 260.85 135.9Q257.3 134.4 255.1 131.2Q252.89999999999998 128.0 252.89999999999998 122.8Q252.89999999999998 118.0 254.79999999999998 115.0Q256.7 112.0 259.9 110.2Q263.09999999999997 108.4 267.2 107.35Q271.3 106.3 275.59999999999997 105.6Q280.2 104.7 282.6 104.15Q285.0 103.6 285.95 102.75Q286.9 101.9 286.9 100.4Q286.9 97.6 284.85 96.0Q282.8 94.4 279.2 94.4Q276.8 94.4 274.6 95.25Q272.4 96.1 270.95 98.1Q269.5 100.1 269.3 103.6L255.0 101.69999999999999Q255.2 96.0 257.4 92.15Q259.59999999999997 88.3 263.15 86.05Q266.7 83.8 271.0 82.8Q275.3 81.8 279.7 81.8Q287.7 81.8 292.75 84.65Q297.8 87.5 300.25 93.0Q302.7 98.5 302.7 106.5V115.5Q302.7 118.9 302.75 122.35Q302.8 125.8 302.9 129.2Q303.0 132.6 303.1 136.0H289.0Q288.9 132.8 288.79999999999995 129.25Q288.7 125.7 288.59999999999997 121.8H287.59999999999997Q286.9 126.1 284.35 129.64999999999998Q281.8 133.2 277.75 135.3Q273.7 137.4 268.5 137.4ZM275.4 125.7Q277.09999999999997 125.7 279.04999999999995 125.05000000000001Q281.0 124.4 282.7 123.0Q284.4 121.6 285.6 119.25Q286.8 116.9 287.0 113.5V109.5H289.5Q288.4 110.7 286.4 111.5Q284.4 112.3 282.1 112.69999999999999Q279.8 113.1 277.5 113.55Q275.2 114.0 273.25 114.75Q271.3 115.5 270.1 116.75Q268.9 118.0 268.9 120.2Q268.9 122.8 270.79999999999995 124.25Q272.7 125.7 275.4 125.7Z M306.9 136.0V105.6V83.19999999999999H320.3L320.4 103.0H321.6Q322.4 95.8 324.5 91.1Q326.6 86.4 330.3 84.1Q334.0 81.8 339.5 81.8Q348.3 81.8 352.8 87.75Q357.3 93.69999999999999 357.3 105.8V136.0H341.1V107.8Q341.1 101.6 339.25 98.6Q337.4 95.6 333.5 95.6Q330.3 95.6 327.95000000000005 97.75Q325.6 99.9 324.3 104.35Q323.0 108.8 323.0 115.8V136.0Z M380.7 137.4Q374.8 137.4 370.1 134.25Q365.4 131.1 362.7 124.8Q360.0 118.5 360.0 109.1Q360.0 100.4 362.4 94.3Q364.8 88.19999999999999 369.3 85.05Q373.8 81.9 380.1 81.9Q384.8 81.9 388.3 83.75Q391.8 85.6 394.1 89.55Q396.4 93.5 397.5 99.8H398.8Q398.3 96.4 397.75 93.15Q397.2 89.9 396.95 86.95Q396.7 84.0 396.7 81.5V65.39999999999999H412.9V115.3V136.0H399.0V119.9H397.8Q396.7 125.8 394.45 129.65Q392.2 133.5 388.79999999999995 135.45Q385.4 137.4 380.7 137.4ZM386.5 124.5Q388.7 124.5 390.6 123.5Q392.5 122.5 393.9 120.6Q395.3 118.7 396.05 116.1Q396.8 113.5 396.8 110.2V109.1Q396.8 106.5 396.25 104.25Q395.7 102.0 394.7 100.3Q393.7 98.6 392.35 97.44999999999999Q391.0 96.3 389.45 95.75Q387.9 95.19999999999999 386.3 95.19999999999999Q383.1 95.19999999999999 380.95000000000005 97.19999999999999Q378.8 99.19999999999999 377.70000000000005 102.55Q376.6 105.9 376.6 109.9Q376.6 114.0 377.8 117.3Q379.0 120.6 381.2 122.55Q383.4 124.5 386.5 124.5Z M415.6 136.0V122.5L441.00000000000006 97.0V96.1H416.1V83.19999999999999H460.40000000000003V96.8L434.90000000000003 122.3V123.0H460.70000000000005V136.0Z M463.5 136.0V83.19999999999999H479.6V136.0ZM471.5 78.30000000000001Q466.9 78.30000000000001 464.45 76.4Q462.0 74.5 462.0 70.8Q462.0 67.0 464.45 65.05000000000001Q466.9 63.10000000000001 471.5 63.10000000000001Q476.2 63.10000000000001 478.65 65.05000000000001Q481.1 67.0 481.1 70.8Q481.1 74.4 478.65 76.35000000000001Q476.2 78.30000000000001 471.5 78.30000000000001Z" fill="#1C1F24"/>
+<rect x="518.0" y="41.5" width="10.0" height="115.0" rx="2" fill="#1C1F24"/>
+<g transform="translate(24.00 24.00) scale(1.3636)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#1C1F24"/><circle cx="55" cy="55" r="26" fill="none" stroke="#FFFFFF" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#FFFFFF"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#FFFFFF"/></g></svg></div><figcaption><span>One colour, black</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-logo-one-colour-black.svg">SVG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#1C1F24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552 198" width="552" height="198" role="img" class="lg" aria-label="Handzi">
+<rect x="156.0" y="32.0" width="362.0" height="134.0" rx="4" fill="#1C1F24" stroke="#FFFFFF" stroke-width="3"/><rect x="156.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="172.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="188.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="204.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="220.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="236.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="252.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="268.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="284.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="300.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="316.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="332.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="348.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="364.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="380.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="396.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="412.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="428.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="444.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="460.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="476.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="492.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/><rect x="508.0" y="32.0" width="2" height="16.0" fill="#FFFFFF"/>
+<path d="M200.4 136.0V106.4V65.39999999999999H216.5V79.6Q216.5 81.6 216.3 84.69999999999999Q216.1 87.8 215.7 91.19999999999999Q215.3 94.6 214.85000000000002 97.8Q214.4 101.0 214.1 103.3H215.4Q216.4 96.0 218.60000000000002 91.25Q220.8 86.5 224.45 84.15Q228.1 81.8 233.5 81.8Q242.3 81.8 246.55 88.0Q250.8 94.19999999999999 250.8 106.8V136.0H234.6V108.1Q234.6 101.69999999999999 232.85 98.69999999999999Q231.1 95.69999999999999 227.3 95.69999999999999Q224.1 95.69999999999999 221.7 97.94999999999999Q219.3 100.19999999999999 217.9 104.8Q216.5 109.4 216.5 116.3V136.0Z M268.5 137.4Q264.4 137.4 260.85 135.9Q257.3 134.4 255.1 131.2Q252.89999999999998 128.0 252.89999999999998 122.8Q252.89999999999998 118.0 254.79999999999998 115.0Q256.7 112.0 259.9 110.2Q263.09999999999997 108.4 267.2 107.35Q271.3 106.3 275.59999999999997 105.6Q280.2 104.7 282.6 104.15Q285.0 103.6 285.95 102.75Q286.9 101.9 286.9 100.4Q286.9 97.6 284.85 96.0Q282.8 94.4 279.2 94.4Q276.8 94.4 274.6 95.25Q272.4 96.1 270.95 98.1Q269.5 100.1 269.3 103.6L255.0 101.69999999999999Q255.2 96.0 257.4 92.15Q259.59999999999997 88.3 263.15 86.05Q266.7 83.8 271.0 82.8Q275.3 81.8 279.7 81.8Q287.7 81.8 292.75 84.65Q297.8 87.5 300.25 93.0Q302.7 98.5 302.7 106.5V115.5Q302.7 118.9 302.75 122.35Q302.8 125.8 302.9 129.2Q303.0 132.6 303.1 136.0H289.0Q288.9 132.8 288.79999999999995 129.25Q288.7 125.7 288.59999999999997 121.8H287.59999999999997Q286.9 126.1 284.35 129.64999999999998Q281.8 133.2 277.75 135.3Q273.7 137.4 268.5 137.4ZM275.4 125.7Q277.09999999999997 125.7 279.04999999999995 125.05000000000001Q281.0 124.4 282.7 123.0Q284.4 121.6 285.6 119.25Q286.8 116.9 287.0 113.5V109.5H289.5Q288.4 110.7 286.4 111.5Q284.4 112.3 282.1 112.69999999999999Q279.8 113.1 277.5 113.55Q275.2 114.0 273.25 114.75Q271.3 115.5 270.1 116.75Q268.9 118.0 268.9 120.2Q268.9 122.8 270.79999999999995 124.25Q272.7 125.7 275.4 125.7Z M306.9 136.0V105.6V83.19999999999999H320.3L320.4 103.0H321.6Q322.4 95.8 324.5 91.1Q326.6 86.4 330.3 84.1Q334.0 81.8 339.5 81.8Q348.3 81.8 352.8 87.75Q357.3 93.69999999999999 357.3 105.8V136.0H341.1V107.8Q341.1 101.6 339.25 98.6Q337.4 95.6 333.5 95.6Q330.3 95.6 327.95000000000005 97.75Q325.6 99.9 324.3 104.35Q323.0 108.8 323.0 115.8V136.0Z M380.7 137.4Q374.8 137.4 370.1 134.25Q365.4 131.1 362.7 124.8Q360.0 118.5 360.0 109.1Q360.0 100.4 362.4 94.3Q364.8 88.19999999999999 369.3 85.05Q373.8 81.9 380.1 81.9Q384.8 81.9 388.3 83.75Q391.8 85.6 394.1 89.55Q396.4 93.5 397.5 99.8H398.8Q398.3 96.4 397.75 93.15Q397.2 89.9 396.95 86.95Q396.7 84.0 396.7 81.5V65.39999999999999H412.9V115.3V136.0H399.0V119.9H397.8Q396.7 125.8 394.45 129.65Q392.2 133.5 388.79999999999995 135.45Q385.4 137.4 380.7 137.4ZM386.5 124.5Q388.7 124.5 390.6 123.5Q392.5 122.5 393.9 120.6Q395.3 118.7 396.05 116.1Q396.8 113.5 396.8 110.2V109.1Q396.8 106.5 396.25 104.25Q395.7 102.0 394.7 100.3Q393.7 98.6 392.35 97.44999999999999Q391.0 96.3 389.45 95.75Q387.9 95.19999999999999 386.3 95.19999999999999Q383.1 95.19999999999999 380.95000000000005 97.19999999999999Q378.8 99.19999999999999 377.70000000000005 102.55Q376.6 105.9 376.6 109.9Q376.6 114.0 377.8 117.3Q379.0 120.6 381.2 122.55Q383.4 124.5 386.5 124.5Z M415.6 136.0V122.5L441.00000000000006 97.0V96.1H416.1V83.19999999999999H460.40000000000003V96.8L434.90000000000003 122.3V123.0H460.70000000000005V136.0Z M463.5 136.0V83.19999999999999H479.6V136.0ZM471.5 78.30000000000001Q466.9 78.30000000000001 464.45 76.4Q462.0 74.5 462.0 70.8Q462.0 67.0 464.45 65.05000000000001Q466.9 63.10000000000001 471.5 63.10000000000001Q476.2 63.10000000000001 478.65 65.05000000000001Q481.1 67.0 481.1 70.8Q481.1 74.4 478.65 76.35000000000001Q476.2 78.30000000000001 471.5 78.30000000000001Z" fill="#FFFFFF"/>
+<rect x="518.0" y="41.5" width="10.0" height="115.0" rx="2" fill="#FFFFFF"/>
+<g transform="translate(24.00 24.00) scale(1.3636)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#FFFFFF"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g></svg></div><figcaption><span>One colour, white</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-logo-one-colour-white.svg">SVG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#F7F5F0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336 368" width="336" height="368" role="img" class="lg" aria-label="Handzi"><g transform="translate(73.00 24.00) scale(1.7273)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#EA580C"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g><path d="M28.4 327.0V297.4V256.4H44.5V270.6Q44.5 272.6 44.3 275.70000000000005Q44.1 278.8 43.7 282.20000000000005Q43.3 285.6 42.85 288.8Q42.400000000000006 292.0 42.1 294.3H43.400000000000006Q44.400000000000006 287.0 46.6 282.25Q48.8 277.5 52.45 275.15Q56.1 272.8 61.5 272.8Q70.30000000000001 272.8 74.55000000000001 279.0Q78.80000000000001 285.2 78.80000000000001 297.8V327.0H62.6V299.1Q62.6 292.7 60.85 289.7Q59.1 286.7 55.3 286.7Q52.1 286.7 49.7 288.95Q47.3 291.2 45.9 295.79999999999995Q44.5 300.4 44.5 307.3V327.0Z M96.5 328.4Q92.4 328.4 88.85 326.9Q85.3 325.4 83.1 322.2Q80.9 319.0 80.9 313.8Q80.9 309.0 82.80000000000001 306.0Q84.7 303.0 87.9 301.2Q91.10000000000001 299.4 95.20000000000002 298.35Q99.30000000000001 297.3 103.60000000000001 296.6Q108.2 295.7 110.6 295.15Q113.0 294.6 113.95 293.75Q114.9 292.9 114.9 291.4Q114.9 288.6 112.85000000000001 287.0Q110.80000000000001 285.4 107.2 285.4Q104.80000000000001 285.4 102.60000000000001 286.25Q100.4 287.1 98.95 289.1Q97.5 291.1 97.30000000000001 294.6L83.0 292.7Q83.2 287.0 85.4 283.15Q87.60000000000001 279.3 91.15 277.05Q94.7 274.8 99.0 273.8Q103.30000000000001 272.8 107.7 272.8Q115.7 272.8 120.75 275.65Q125.80000000000001 278.5 128.25 284.0Q130.7 289.5 130.7 297.5V306.5Q130.7 309.9 130.75 313.35Q130.8 316.8 130.9 320.20000000000005Q131.0 323.6 131.10000000000002 327.0H117.0Q116.9 323.8 116.80000000000001 320.25Q116.7 316.7 116.6 312.8H115.6Q114.9 317.1 112.35000000000001 320.65Q109.80000000000001 324.2 105.75 326.29999999999995Q101.7 328.4 96.5 328.4ZM103.4 316.7Q105.10000000000001 316.7 107.05000000000001 316.04999999999995Q109.0 315.4 110.7 314.0Q112.4 312.6 113.60000000000001 310.25Q114.80000000000001 307.9 115.0 304.5V300.5H117.5Q116.4 301.7 114.4 302.5Q112.4 303.3 110.10000000000001 303.70000000000005Q107.80000000000001 304.1 105.5 304.55Q103.2 305.0 101.25 305.75Q99.30000000000001 306.5 98.10000000000001 307.75Q96.9 309.0 96.9 311.2Q96.9 313.8 98.80000000000001 315.25Q100.7 316.7 103.4 316.7Z M134.9 327.0V296.6V274.2H148.3L148.4 294.0H149.6Q150.4 286.8 152.5 282.1Q154.6 277.4 158.3 275.1Q162.0 272.8 167.5 272.8Q176.3 272.8 180.8 278.75Q185.3 284.7 185.3 296.8V327.0H169.1V298.8Q169.1 292.6 167.25 289.6Q165.4 286.6 161.5 286.6Q158.3 286.6 155.95 288.75Q153.6 290.9 152.3 295.35Q151.0 299.8 151.0 306.8V327.0Z M208.7 328.4Q202.8 328.4 198.10000000000002 325.25Q193.4 322.1 190.7 315.8Q188.0 309.5 188.0 300.1Q188.0 291.4 190.4 285.29999999999995Q192.8 279.2 197.3 276.04999999999995Q201.8 272.9 208.1 272.9Q212.8 272.9 216.3 274.75Q219.8 276.6 222.10000000000002 280.55Q224.4 284.5 225.5 290.8H226.8Q226.3 287.4 225.75 284.15Q225.2 280.9 224.95 277.95Q224.7 275.0 224.7 272.5V256.4H240.9V306.3V327.0H227.0V310.9H225.8Q224.7 316.8 222.45 320.65Q220.2 324.5 216.8 326.45Q213.4 328.4 208.7 328.4ZM214.5 315.5Q216.7 315.5 218.6 314.5Q220.5 313.5 221.9 311.6Q223.3 309.7 224.05 307.1Q224.8 304.5 224.8 301.2V300.1Q224.8 297.5 224.25 295.25Q223.7 293.0 222.7 291.3Q221.7 289.6 220.35 288.45000000000005Q219.0 287.3 217.45 286.75Q215.9 286.2 214.3 286.2Q211.1 286.2 208.95 288.2Q206.8 290.2 205.7 293.54999999999995Q204.6 296.9 204.6 300.9Q204.6 305.0 205.8 308.3Q207.0 311.6 209.2 313.55Q211.4 315.5 214.5 315.5Z M243.60000000000002 327.0V313.5L269.0 288.0V287.1H244.10000000000002V274.2H288.40000000000003V287.8L262.90000000000003 313.3V314.0H288.70000000000005V327.0Z M291.5 327.0V274.2H307.6V327.0ZM299.5 269.29999999999995Q294.9 269.29999999999995 292.45 267.4Q290.0 265.5 290.0 261.79999999999995Q290.0 258.0 292.45 256.04999999999995Q294.9 254.09999999999997 299.5 254.09999999999997Q304.2 254.09999999999997 306.65 256.04999999999995Q309.1 258.0 309.1 261.79999999999995Q309.1 265.4 306.65 267.34999999999997Q304.2 269.29999999999995 299.5 269.29999999999995Z" fill="#1C1F24"/></svg></div><figcaption><span>Stacked</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-logo-stacked.svg">SVG</button><button class="dl" data-f="kit/logo/png/logo-stacked-800.png">PNG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#1C1F24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336 368" width="336" height="368" role="img" class="lg" aria-label="Handzi"><g transform="translate(73.00 24.00) scale(1.7273)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#EA580C"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g><path d="M28.4 327.0V297.4V256.4H44.5V270.6Q44.5 272.6 44.3 275.70000000000005Q44.1 278.8 43.7 282.20000000000005Q43.3 285.6 42.85 288.8Q42.400000000000006 292.0 42.1 294.3H43.400000000000006Q44.400000000000006 287.0 46.6 282.25Q48.8 277.5 52.45 275.15Q56.1 272.8 61.5 272.8Q70.30000000000001 272.8 74.55000000000001 279.0Q78.80000000000001 285.2 78.80000000000001 297.8V327.0H62.6V299.1Q62.6 292.7 60.85 289.7Q59.1 286.7 55.3 286.7Q52.1 286.7 49.7 288.95Q47.3 291.2 45.9 295.79999999999995Q44.5 300.4 44.5 307.3V327.0Z M96.5 328.4Q92.4 328.4 88.85 326.9Q85.3 325.4 83.1 322.2Q80.9 319.0 80.9 313.8Q80.9 309.0 82.80000000000001 306.0Q84.7 303.0 87.9 301.2Q91.10000000000001 299.4 95.20000000000002 298.35Q99.30000000000001 297.3 103.60000000000001 296.6Q108.2 295.7 110.6 295.15Q113.0 294.6 113.95 293.75Q114.9 292.9 114.9 291.4Q114.9 288.6 112.85000000000001 287.0Q110.80000000000001 285.4 107.2 285.4Q104.80000000000001 285.4 102.60000000000001 286.25Q100.4 287.1 98.95 289.1Q97.5 291.1 97.30000000000001 294.6L83.0 292.7Q83.2 287.0 85.4 283.15Q87.60000000000001 279.3 91.15 277.05Q94.7 274.8 99.0 273.8Q103.30000000000001 272.8 107.7 272.8Q115.7 272.8 120.75 275.65Q125.80000000000001 278.5 128.25 284.0Q130.7 289.5 130.7 297.5V306.5Q130.7 309.9 130.75 313.35Q130.8 316.8 130.9 320.20000000000005Q131.0 323.6 131.10000000000002 327.0H117.0Q116.9 323.8 116.80000000000001 320.25Q116.7 316.7 116.6 312.8H115.6Q114.9 317.1 112.35000000000001 320.65Q109.80000000000001 324.2 105.75 326.29999999999995Q101.7 328.4 96.5 328.4ZM103.4 316.7Q105.10000000000001 316.7 107.05000000000001 316.04999999999995Q109.0 315.4 110.7 314.0Q112.4 312.6 113.60000000000001 310.25Q114.80000000000001 307.9 115.0 304.5V300.5H117.5Q116.4 301.7 114.4 302.5Q112.4 303.3 110.10000000000001 303.70000000000005Q107.80000000000001 304.1 105.5 304.55Q103.2 305.0 101.25 305.75Q99.30000000000001 306.5 98.10000000000001 307.75Q96.9 309.0 96.9 311.2Q96.9 313.8 98.80000000000001 315.25Q100.7 316.7 103.4 316.7Z M134.9 327.0V296.6V274.2H148.3L148.4 294.0H149.6Q150.4 286.8 152.5 282.1Q154.6 277.4 158.3 275.1Q162.0 272.8 167.5 272.8Q176.3 272.8 180.8 278.75Q185.3 284.7 185.3 296.8V327.0H169.1V298.8Q169.1 292.6 167.25 289.6Q165.4 286.6 161.5 286.6Q158.3 286.6 155.95 288.75Q153.6 290.9 152.3 295.35Q151.0 299.8 151.0 306.8V327.0Z M208.7 328.4Q202.8 328.4 198.10000000000002 325.25Q193.4 322.1 190.7 315.8Q188.0 309.5 188.0 300.1Q188.0 291.4 190.4 285.29999999999995Q192.8 279.2 197.3 276.04999999999995Q201.8 272.9 208.1 272.9Q212.8 272.9 216.3 274.75Q219.8 276.6 222.10000000000002 280.55Q224.4 284.5 225.5 290.8H226.8Q226.3 287.4 225.75 284.15Q225.2 280.9 224.95 277.95Q224.7 275.0 224.7 272.5V256.4H240.9V306.3V327.0H227.0V310.9H225.8Q224.7 316.8 222.45 320.65Q220.2 324.5 216.8 326.45Q213.4 328.4 208.7 328.4ZM214.5 315.5Q216.7 315.5 218.6 314.5Q220.5 313.5 221.9 311.6Q223.3 309.7 224.05 307.1Q224.8 304.5 224.8 301.2V300.1Q224.8 297.5 224.25 295.25Q223.7 293.0 222.7 291.3Q221.7 289.6 220.35 288.45000000000005Q219.0 287.3 217.45 286.75Q215.9 286.2 214.3 286.2Q211.1 286.2 208.95 288.2Q206.8 290.2 205.7 293.54999999999995Q204.6 296.9 204.6 300.9Q204.6 305.0 205.8 308.3Q207.0 311.6 209.2 313.55Q211.4 315.5 214.5 315.5Z M243.60000000000002 327.0V313.5L269.0 288.0V287.1H244.10000000000002V274.2H288.40000000000003V287.8L262.90000000000003 313.3V314.0H288.70000000000005V327.0Z M291.5 327.0V274.2H307.6V327.0ZM299.5 269.29999999999995Q294.9 269.29999999999995 292.45 267.4Q290.0 265.5 290.0 261.79999999999995Q290.0 258.0 292.45 256.04999999999995Q294.9 254.09999999999997 299.5 254.09999999999997Q304.2 254.09999999999997 306.65 256.04999999999995Q309.1 258.0 309.1 261.79999999999995Q309.1 265.4 306.65 267.34999999999997Q304.2 269.29999999999995 299.5 269.29999999999995Z" fill="#FFFFFF"/></svg></div><figcaption><span>Stacked, dark</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-logo-stacked-dark.svg">SVG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#E9E6DF"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" class="lg" aria-label="Handzi"><rect width="1024" height="1024" rx="229" fill="#FFC94A"/><g transform="translate(153.60 153.60) scale(6.5164)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#EA580C"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g></svg></div><figcaption><span>App icon</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-app-icon.svg">SVG</button><button class="dl" data-f="kit/logo/png/app-icon-1024.png">PNG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#F7F5F0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" width="110" height="110" role="img" class="lg" aria-label="Handzi"><g transform="translate(0.00 0.00) scale(1.0000)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#EA580C"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g></svg></div><figcaption><span>Mark</span><span class="btns"><button class="dl" data-f="kit/logo/handzi-mark.svg">SVG</button></span></figcaption></figure><figure class="logo"><div class="stage" style="background:#E9E6DF"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" class="lg" aria-label="Handzi"><rect width="64" height="64" rx="14" fill="#F7F5F0"/><g transform="translate(9.60 9.60) scale(0.4073)"><rect x="4" y="4" width="102" height="102" rx="30" fill="#EA580C"/><circle cx="55" cy="55" r="26" fill="none" stroke="#1C1F24" stroke-width="8"/><circle cx="55" cy="55" r="7" fill="#1C1F24"/><rect x="88" y="62" width="18" height="30" rx="4" fill="#1C1F24"/></g></svg></div><figcaption><span>Favicon</span><span class="btns"><button class="dl" data-f="kit/logo/favicon.svg">SVG</button><button class="dl" data-f="kit/logo/png/favicon-32.png">PNG</button></span></figcaption></figure></div>
+<h2 style="margin-top:32px;font-size:24px">App icon and favicon PNGs</h2>
+<div class="chips"><button class="dl chip" data-f="kit/logo/png/app-icon-1024.png">app-icon-1024.png</button><button class="dl chip" data-f="kit/logo/png/app-icon-512.png">app-icon-512.png</button><button class="dl chip" data-f="kit/logo/png/app-icon-192.png">app-icon-192.png</button><button class="dl chip" data-f="kit/logo/png/app-icon-180.png">app-icon-180.png</button><button class="dl chip" data-f="kit/logo/png/favicon-32.png">favicon-32.png</button><button class="dl chip" data-f="kit/logo/png/favicon-16.png">favicon-16.png</button></div>
+</div></section>
+
+<section class="band" style="padding-top:0"><div class="wrap">
+<h2>Colours</h2><p style="color:var(--mut);margin:0">Tap a colour to copy its code.</p>
+<div class="sws"><button class="sw copy" data-c="#EA580C"><span class="chipc" style="background:#EA580C"></span><b>Safety Orange</b><span class="hex">#EA580C</span><span class="use">Logo, icons, big headings</span></button><button class="sw copy" data-c="#C2410C"><span class="chipc" style="background:#C2410C"></span><b>Brick</b><span class="hex">#C2410C</span><span class="use">Buttons, links</span></button><button class="sw copy" data-c="#FFC94A"><span class="chipc" style="background:#FFC94A"></span><b>Sunshine</b><span class="hex">#FFC94A</span><span class="use">Highlights, stars, badges</span></button><button class="sw copy" data-c="#1C1F24"><span class="chipc" style="background:#1C1F24"></span><b>Charcoal</b><span class="hex">#1C1F24</span><span class="use">Text, dark screens</span></button><button class="sw copy" data-c="#5B6068"><span class="chipc" style="background:#5B6068"></span><b>Steel</b><span class="hex">#5B6068</span><span class="use">Secondary text</span></button><button class="sw copy" data-c="#F7F5F0"><span class="chipc" style="background:#F7F5F0"></span><b>Chalk</b><span class="hex">#F7F5F0</span><span class="use">App background</span></button></div>
+</div></section>
+
+<section class="band" style="padding-top:0"><div class="wrap">
+<div class="row"><h2>Full CI guide</h2><span class="btns"><button class="dl" id="copyGuide">Copy</button><button class="dl" data-f="kit/BRAND.md">Download</button></span></div>
+<div class="guide"><h1>Handzi — Corporate Identity Guide v1.0</h1>
+<blockquote>
+<p><strong>Skilled hands, one tap away.</strong>
+Handzi is a South African platform where handymen and tradespeople (repairs, building, paving, roofing, waterproofing, plumbing, electrical, painting and more) show off their work, and clients find, compare and hire them.</p>
+</blockquote>
+<p>This guide is written for two readers: <strong>people</strong> (designers, developers, printers) and <strong>AI coding assistants</strong> (e.g. Claude in VS Code). Section 12 contains the rules an assistant must follow when building or editing the Handzi app.</p>
+<hr />
+<h2>1. Brand essence</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Give skilled hands the visibility and respect they've earned, and give clients a trustworthy way to hire them.</td>
+</tr>
+<tr>
+<td><strong>Promise</strong></td>
+<td>See real work before you hire.</td>
+</tr>
+<tr>
+<td><strong>Personality</strong></td>
+<td>Warm · Practical · Proud · A little cheeky · Honest</td>
+</tr>
+<tr>
+<td><strong>Feels like</strong></td>
+<td>A well-used tape measure: reliable, handy, always in the toolbox.</td>
+</tr>
+<tr>
+<td><strong>Not</strong></td>
+<td>Corporate, cold, flashy, salesy, "tech-bro".</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why the tape measure?</strong> Every trade uses one. It stands for precision, measuring up, and checking the work. The tape pulls out to reveal the name, the way Handzi reveals skilled people.</p>
+<hr />
+<h2>2. Logo</h2>
+<h3>2.1 Files (<code>/logo</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>handzi-logo-primary.svg</code></td>
+<td>Default. Light backgrounds (chalk, white).</td>
+</tr>
+<tr>
+<td><code>handzi-logo-on-dark.svg</code></td>
+<td>Charcoal or very dark backgrounds.</td>
+</tr>
+<tr>
+<td><code>handzi-logo-on-orange.svg</code></td>
+<td>Safety Orange backgrounds.</td>
+</tr>
+<tr>
+<td><code>handzi-logo-on-sunshine.svg</code></td>
+<td>Sunshine yellow backgrounds.</td>
+</tr>
+<tr>
+<td><code>handzi-logo-one-colour-black.svg</code></td>
+<td>Single-colour print, stamps, embroidery, vinyl, faxes, newspaper.</td>
+</tr>
+<tr>
+<td><code>handzi-logo-one-colour-white.svg</code></td>
+<td>Single-colour reversed on dark or photos.</td>
+</tr>
+<tr>
+<td><code>handzi-logo-stacked.svg</code> / <code>-stacked-dark.svg</code></td>
+<td>Square or tall spaces: profile pictures, splash screens, merch.</td>
+</tr>
+<tr>
+<td><code>handzi-mark.svg</code></td>
+<td>The tape case alone: loaders, watermarks, tiny spaces.</td>
+</tr>
+<tr>
+<td><code>handzi-app-icon.svg</code> (rounded) / <code>-square.svg</code></td>
+<td>App icon. Stores apply their own mask, so submit the <strong>square</strong> version.</td>
+</tr>
+<tr>
+<td><code>favicon.svg</code></td>
+<td>Browser tab.</td>
+</tr>
+<tr>
+<td><code>png/</code></td>
+<td>Ready-made PNGs: app icon 1024/512/192/180, favicon 32/16, logo 1200 px.</td>
+</tr>
+</tbody>
+</table>
+<p>All logo text is outlined (converted to shapes), so files render correctly without fonts installed.</p>
+<h3>2.2 Anatomy</h3>
+<ol>
+<li><strong>Tape case</strong>: orange rounded square with a charcoal dial and tab. This is the <strong>mark</strong>.</li>
+<li><strong>Tape band</strong>: sunshine yellow with measuring ticks along the top.</li>
+<li><strong>Wordmark</strong>: "handzi", always lowercase, Bricolage Grotesque ExtraBold.</li>
+<li><strong>Hook</strong>: the charcoal end bar on the right.</li>
+</ol>
+<h3>2.3 Clear space</h3>
+<p>Keep empty space around the logo equal to the <strong>height of the tape case's dial ring (≈ ½ the case height)</strong> on all sides. No text, edges or images inside that zone.</p>
+<h3>2.4 Minimum size</h3>
+<ul>
+<li>Horizontal logo: <strong>120 px wide</strong> on screen / <strong>30 mm</strong> in print.</li>
+<li>Stacked logo: <strong>64 px wide</strong> / 18 mm.</li>
+<li>Below these sizes, use the <strong>mark</strong> or <strong>app icon</strong> alone.</li>
+</ul>
+<h3>2.5 Don'ts</h3>
+<ul>
+<li>❌ Don't recolour outside the approved versions.</li>
+<li>❌ Don't stretch, skew, rotate or add effects (shadows, glows, gradients, outlines).</li>
+<li>❌ Don't retype the wordmark in another font, or capitalise it ("Handzi" in running text is fine; the <strong>logo</strong> is always lowercase).</li>
+<li>❌ Don't separate the tape band from the case, or rearrange the parts.</li>
+<li>❌ Don't place the primary logo on busy photos: use the one-colour white version over a dark overlay.</li>
+<li>❌ Don't put the logo inside another shape (circle, badge) except the official app icon.</li>
+</ul>
+<hr />
+<h2>3. Colour</h2>
+<h3>3.1 Palette</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Hex</th>
+<th>RGB</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Safety Orange</strong></td>
+<td><code>#EA580C</code></td>
+<td>234, 88, 12</td>
+<td>Brand hero colour: logo, illustrations, icons, large headings (24 px+), highlights on dark.</td>
+</tr>
+<tr>
+<td><strong>Brick</strong></td>
+<td><code>#C2410C</code></td>
+<td>194, 65, 12</td>
+<td>Primary buttons, links, active tabs. The <em>usable</em> orange for small text.</td>
+</tr>
+<tr>
+<td><strong>Brick Dark</strong></td>
+<td><code>#9A3412</code></td>
+<td>154, 52, 18</td>
+<td>Hover/pressed for Brick.</td>
+</tr>
+<tr>
+<td><strong>Sunshine</strong></td>
+<td><code>#FFC94A</code></td>
+<td>255, 201, 74</td>
+<td>Highlights, ratings stars, badges, secondary buttons, the tape.</td>
+</tr>
+<tr>
+<td><strong>Sunshine Dark</strong></td>
+<td><code>#E0A520</code></td>
+<td>224, 165, 32</td>
+<td>Hover/pressed for Sunshine.</td>
+</tr>
+<tr>
+<td><strong>Charcoal</strong></td>
+<td><code>#1C1F24</code></td>
+<td>28, 31, 36</td>
+<td>Main text, dark backgrounds, nav.</td>
+</tr>
+<tr>
+<td><strong>Graphite</strong></td>
+<td><code>#33373E</code></td>
+<td>51, 55, 62</td>
+<td>Dark-mode surfaces.</td>
+</tr>
+<tr>
+<td><strong>Steel</strong></td>
+<td><code>#5B6068</code></td>
+<td>91, 96, 104</td>
+<td>Secondary text on light.</td>
+</tr>
+<tr>
+<td><strong>Mist</strong></td>
+<td><code>#A3A8B0</code></td>
+<td>163, 168, 176</td>
+<td>Secondary text on dark only.</td>
+</tr>
+<tr>
+<td><strong>Line</strong></td>
+<td><code>#E2DED6</code></td>
+<td>226, 222, 214</td>
+<td>Borders and dividers.</td>
+</tr>
+<tr>
+<td><strong>Chalk</strong></td>
+<td><code>#F7F5F0</code></td>
+<td>247, 245, 240</td>
+<td>App background.</td>
+</tr>
+<tr>
+<td><strong>White</strong></td>
+<td><code>#FFFFFF</code></td>
+<td>255, 255, 255</td>
+<td>Cards, inputs.</td>
+</tr>
+<tr>
+<td>Success</td>
+<td><code>#15803D</code></td>
+<td></td>
+<td>Verified, completed.</td>
+</tr>
+<tr>
+<td>Danger</td>
+<td><code>#B91C1C</code></td>
+<td></td>
+<td>Errors, destructive.</td>
+</tr>
+<tr>
+<td>Info</td>
+<td><code>#1D4ED8</code></td>
+<td></td>
+<td>Notices, in progress.</td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 Proportion</h3>
+<p>Roughly <strong>60% Chalk/White · 25% Charcoal · 10% Orange/Brick · 5% Sunshine</strong>. Orange is a spice, not the meal: use it where you want the eye to go.</p>
+<h3>3.3 Approved text/background pairs (WCAG AA)</h3>
+<table>
+<thead>
+<tr>
+<th>Text on background</th>
+<th>Contrast</th>
+<th>OK for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Charcoal on Chalk</td>
+<td>15.2 : 1</td>
+<td>All text</td>
+</tr>
+<tr>
+<td>Charcoal on Sunshine</td>
+<td>10.8 : 1</td>
+<td>All text</td>
+</tr>
+<tr>
+<td>Steel on Chalk</td>
+<td>5.8 : 1</td>
+<td>All text</td>
+</tr>
+<tr>
+<td>White on Brick</td>
+<td>5.2 : 1</td>
+<td>All text, primary buttons</td>
+</tr>
+<tr>
+<td>Brick on Chalk</td>
+<td>4.8 : 1</td>
+<td>Links, small text</td>
+</tr>
+<tr>
+<td>Charcoal on Orange</td>
+<td>4.6 : 1</td>
+<td>All text</td>
+</tr>
+<tr>
+<td>White on Charcoal</td>
+<td>16.5 : 1</td>
+<td>All text</td>
+</tr>
+<tr>
+<td>Mist on Charcoal</td>
+<td>6.9 : 1</td>
+<td>All text</td>
+</tr>
+<tr>
+<td>⚠️ White on Orange</td>
+<td>3.6 : 1</td>
+<td><strong>Large text (24 px+) and icons only</strong></td>
+</tr>
+<tr>
+<td>⚠️ Orange on Chalk</td>
+<td>3.3 : 1</td>
+<td><strong>Large text and icons only</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Typography</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Font</th>
+<th>Weight</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Display &amp; headings</td>
+<td><strong>Bricolage Grotesque</strong></td>
+<td>ExtraBold 800</td>
+<td>Letter-spacing −0.03em. Headlines, prices, ratings, big numbers.</td>
+</tr>
+<tr>
+<td>Body &amp; UI</td>
+<td><strong>Inter</strong></td>
+<td>400 / 500 / 600 / 700</td>
+<td>Everything else.</td>
+</tr>
+</tbody>
+</table>
+<p>Both are free (SIL Open Font License) and included in <code>/fonts</code>, and also on Google Fonts.</p>
+<h3>Type scale (mobile first)</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Size / line height</th>
+<th>Font</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>display</td>
+<td>40 / 44</td>
+<td>Bricolage 800</td>
+</tr>
+<tr>
+<td>h1</td>
+<td>32 / 36</td>
+<td>Bricolage 800</td>
+</tr>
+<tr>
+<td>h2</td>
+<td>24 / 30</td>
+<td>Bricolage 800</td>
+</tr>
+<tr>
+<td>h3</td>
+<td>20 / 26</td>
+<td>Inter 600</td>
+</tr>
+<tr>
+<td>body</td>
+<td>16 / 24</td>
+<td>Inter 400</td>
+</tr>
+<tr>
+<td>small</td>
+<td>14 / 20</td>
+<td>Inter 400</td>
+</tr>
+<tr>
+<td>caption</td>
+<td>12 / 16</td>
+<td>Inter 500</td>
+</tr>
+</tbody>
+</table>
+<p>Rules: sentence case for headings and buttons ("Book a handyman", not "Book A Handyman"). Never use Bricolage for paragraphs. Never go below 12 px.</p>
+<hr />
+<h2>5. Layout, spacing and shape</h2>
+<ul>
+<li><strong>4 px grid.</strong> Spacing steps: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64.</li>
+<li>Screen side padding: <strong>16 px</strong> on phones, 24 px on tablets, max content width <strong>1200 px</strong> on web.</li>
+<li><strong>Radius:</strong> 6 (chips, small), 10 (buttons, inputs), 16 (cards), 24 (sheets, app icon feel), pill (tags, avatars' status).</li>
+<li><strong>Shadows</strong> are soft and rare: cards use <code>shadow.card</code>; floating buttons and menus use <code>shadow.raised</code>.</li>
+<li><strong>Touch targets ≥ 48 × 48 px.</strong></li>
+</ul>
+<hr />
+<h2>6. UI components</h2>
+<p><strong>Buttons</strong> (height 48, radius 10, Inter 600 16 px, sentence case)
+- <em>Primary</em>: Brick background, white text, hover Brick Dark. One per screen ideally ("Request quote", "Hire now").
+- <em>Secondary</em>: Sunshine background, Charcoal text.
+- <em>Outline</em>: transparent, 1.5 px Charcoal border, Charcoal text.
+- <em>Ghost/text</em>: Brick text, no background.
+- <em>Destructive</em>: Danger background, white text.
+- Disabled: 40% opacity, no hover.</p>
+<p><strong>Inputs</strong>: white, 1 px Line border, radius 10, height 48, 16 px text (prevents iOS zoom). Focus: 3 px Safety Orange ring. Labels always visible above the field (no placeholder-only labels). Errors in Danger with an icon and a clear sentence.</p>
+<p><strong>Cards</strong>: white, radius 16, <code>shadow.card</code> or 1 px Line border, 16 px padding.</p>
+<p><strong>Handyman profile card (signature component)</strong>
+- Avatar 88 px circle; name in Bricolage 800; trade(s) as chips.
+- Star rating in Sunshine with the number in Charcoal ("4.8 · 37 jobs").
+- <strong>Verified</strong> badge: Success green check + "ID verified" / "Qualified".
+- Portfolio strip: before/after photos, radius 10.
+- Area served + "From R___/hour" (or "Quote on request").
+- Primary action: "Request quote".</p>
+<p><strong>Badges &amp; chips</strong>: pill radius, caption or small text. Trade chips on Chalk with Charcoal text; "Top rated" on Sunshine; "Verified" on Success with white text.</p>
+<p><strong>Tape ticks motif</strong>: the measuring-tick pattern (2 px Charcoal ticks every 12–16 px) can be used sparingly as a divider, progress bar or loading bar. Never as a full background.</p>
+<p><strong>Navigation</strong>: bottom tab bar on mobile (Charcoal background, Mist icons, active tab in Sunshine), max 5 tabs: Home · Search · Jobs · Messages · Profile.</p>
+<p><strong>Icons</strong>: one outline icon set (recommended: Lucide or Phosphor "regular"), 1.75–2 px stroke, rounded caps. 20 px in UI, 24 px in nav. No emoji as UI icons.</p>
+<p><strong>Empty states</strong>: the Handzi mark + one friendly line + one action, e.g. <em>"No jobs yet. Your next one is just a tap away."</em> → "Find a handyman".</p>
+<p><strong>Loading</strong>: the tape case mark with the tape ticks sliding (≤ 1 s loop), or skeleton cards in Line colour.</p>
+<hr />
+<h2>7. Imagery</h2>
+<ul>
+<li><strong>Real work, real people.</strong> Hands at work, finished jobs, before/after shots, South African homes and streets.</li>
+<li>Natural light, honest, not over-polished. No generic stock smiles, hard-hat clichés or watermarks.</li>
+<li>Show diversity of South Africans, genders and ages in the trades.</li>
+<li>Overlays on photos: Charcoal at 50–70% opacity, white text on top.</li>
+</ul>
+<hr />
+<h2>8. Voice and tone</h2>
+<p>Talk like a reliable local fundi who's proud of the work: <strong>clear, warm, direct, a bit of humour, never slangy to the point of confusion.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Do</th>
+<th>Don't</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Find a handyman you can trust."</td>
+<td>"Leverage our solutions to source vetted service providers."</td>
+</tr>
+<tr>
+<td>"Show off your best work."</td>
+<td>"Upload portfolio assets."</td>
+</tr>
+<tr>
+<td>"Your quote is on its way."</td>
+<td>"Request successfully submitted."</td>
+</tr>
+<tr>
+<td>"Sorry, something broke on our side. Try again?"</td>
+<td>"Error 500."</td>
+</tr>
+<tr>
+<td>"Sharp! Job booked for Saturday, 9am."</td>
+<td>"BOOKING CONFIRMED!!!"</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Address users as <strong>you</strong>; Handzi is <strong>we</strong>.</li>
+<li>Use South African English spelling (colour, organise, centre) and <strong>R</strong> for Rand (R450, R1 200).</li>
+<li>Local flavour (sharp, lekker, fundi) lightly, max one per screen, never in errors, payments or legal text.</li>
+<li>Name the trades plainly: plumber, electrician, tiler, roofer, painter, paver, waterproofing, builder, general handyman.</li>
+</ul>
+<p><strong>Tagline:</strong> <em>Skilled hands, one tap away.</em>
+<strong>Alternates:</strong> <em>See the work before you hire.</em> · <em>Every trade, one tap.</em></p>
+<hr />
+<h2>9. Accessibility</h2>
+<ul>
+<li>Meet <strong>WCAG 2.2 AA</strong>: use only the approved pairs in 3.3.</li>
+<li>Never rely on colour alone (pair status colours with icons or text).</li>
+<li>Touch targets ≥ 48 px; visible focus ring (3 px Safety Orange).</li>
+<li>Support dynamic type / browser zoom to 200% without breaking.</li>
+<li>Respect "reduce motion".</li>
+<li>Every image has meaningful alt text ("Tiled bathroom floor by Sipho M.").</li>
+</ul>
+<hr />
+<h2>10. Dark mode</h2>
+<p>Background Charcoal, cards Graphite, text White, secondary text Mist. Primary buttons switch to <strong>Safety Orange with Charcoal text</strong>. Links become Sunshine. Use <code>handzi-logo-on-dark.svg</code>.</p>
+<hr />
+<h2>11. Applications (quick reference)</h2>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App store icon</td>
+<td><code>png/app-icon-1024.png</code> (square; the store rounds it).</td>
+</tr>
+<tr>
+<td>Android adaptive icon</td>
+<td>Foreground: <code>handzi-mark.svg</code> at 66% of canvas; background: Sunshine <code>#FFC94A</code>.</td>
+</tr>
+<tr>
+<td>Web favicon</td>
+<td><code>favicon.svg</code> + <code>png/favicon-32.png</code>.</td>
+</tr>
+<tr>
+<td>Splash screen</td>
+<td>Chalk background, <code>handzi-logo-stacked.svg</code> centred, 40% of screen width.</td>
+</tr>
+<tr>
+<td>Social profile</td>
+<td><code>handzi-logo-stacked.svg</code> on Chalk, or app icon.</td>
+</tr>
+<tr>
+<td>Vans, T-shirts, caps</td>
+<td>Horizontal or one-colour versions; Charcoal or Orange garments.</td>
+</tr>
+<tr>
+<td>Business cards, invoices</td>
+<td>Primary logo top-left; Inter for all text.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>12. Rules for AI coding assistants (Claude in VS Code etc.)</h2>
+<p>When creating or editing any Handzi UI, you <strong>must</strong>:</p>
+<ol>
+<li><strong>Use the tokens, never raw values.</strong> Import <code>tokens/tokens.css</code> (web) or map <code>tokens/tokens.json</code> into the app's theme (React Native <code>StyleSheet</code>/theme object, Flutter <code>ThemeData</code>, Tailwind via <code>tokens/tailwind.preset.js</code>). Do not hard-code hex colours, font sizes or spacing in components.</li>
+<li><strong>Use the logo files as-is.</strong> Import SVGs from <code>handzi-brand/logo/</code>. Never recreate the logo in code, retype the wordmark, or recolour it. Pick the version by background (section 2.1).</li>
+<li><strong>Colour rules:</strong></li>
+<li>Primary buttons = Brick <code>#C2410C</code> with white text. Never white text on Safety Orange <code>#EA580C</code> below 24 px.</li>
+<li>Safety Orange is for graphics, icons, the logo and large headings.</li>
+<li>Sunshine is for highlights, stars, badges, secondary buttons (Charcoal text).</li>
+<li>Only use text/background pairs from section 3.3.</li>
+<li><strong>Type:</strong> headings h1/h2/display in Bricolage Grotesque 800 with −0.03em tracking; everything else Inter. Sentence case. Min 12 px; inputs 16 px.</li>
+<li><strong>Spacing and shape:</strong> 4 px grid; screen padding 16 px; radius 10 for buttons/inputs, 16 for cards; touch targets ≥ 48 px.</li>
+<li><strong>Copy:</strong> write UI text in the Handzi voice (section 8), SA English, Rand as "R1 200". No lorem ipsum. Use clear placeholders like <code>[Handyman name]</code> if real data is missing.</li>
+<li><strong>Accessibility:</strong> semantic elements, labels on every input, <code>aria-label</code> on icon-only buttons, alt text on images, visible focus ring, respect reduced motion.</li>
+<li><strong>Icons:</strong> one outline set (Lucide or Phosphor). No emoji in UI.</li>
+<li><strong>Don't invent new brand colours, fonts, gradients or shadows.</strong> If something is missing, choose the closest token and leave a <code>// TODO(brand):</code> comment explaining the gap.</li>
+<li><strong>Dark mode</strong> uses the semantic variables (<code>--hz-bg</code>, <code>--hz-surface</code>, <code>--hz-text</code>, <code>--hz-primary</code>…) so it switches automatically. Build with semantic tokens, not palette tokens, wherever possible.</li>
+<li>When unsure, prefer <strong>simple, warm and practical</strong> over flashy.</li>
+</ol>
+<hr />
+<p><em>Handzi CI Guide v1.0 · November 2026 · Fonts: Bricolage Grotesque and Inter, SIL Open Font License 1.1.</em></p></div>
+</div></section>
+<script type="application/json" id="files">["BRAND.md", "CLAUDE-snippet.md", "README.md", "fonts/BricolageGrotesque-Variable.ttf", "fonts/Inter-Variable.ttf", "fonts/OFL-BricolageGrotesque.txt", "fonts/OFL-Inter.txt", "logo/favicon.svg", "logo/handzi-app-icon-square.svg", "logo/handzi-app-icon.svg", "logo/handzi-logo-on-dark.svg", "logo/handzi-logo-on-orange.svg", "logo/handzi-logo-on-sunshine.svg", "logo/handzi-logo-one-colour-black.svg", "logo/handzi-logo-one-colour-white.svg", "logo/handzi-logo-primary.svg", "logo/handzi-logo-stacked-dark.svg", "logo/handzi-logo-stacked.svg", "logo/handzi-mark.svg", "logo/png/app-icon-1024.png", "logo/png/app-icon-180.png", "logo/png/app-icon-192.png", "logo/png/app-icon-512.png", "logo/png/favicon-16.png", "logo/png/favicon-32.png", "logo/png/logo-on-dark-1200.png", "logo/png/logo-primary-1200.png", "logo/png/logo-stacked-800.png", "tokens/tailwind.preset.js", "tokens/tokens.css", "tokens/tokens.json"]</script>
+<div id="toast" role="status" aria-live="polite"></div>
+<script type="application/json" id="md">"# Handzi \u2014 Corporate Identity Guide v1.0\n\n> **Skilled hands, one tap away.**\n> Handzi is a South African platform where handymen and tradespeople (repairs, building, paving, roofing, waterproofing, plumbing, electrical, painting and more) show off their work, and clients find, compare and hire them.\n\nThis guide is written for two readers: **people** (designers, developers, printers) and **AI coding assistants** (e.g. Claude in VS Code). Section 12 contains the rules an assistant must follow when building or editing the Handzi app.\n\n---\n\n## 1. Brand essence\n\n| | |\n|---|---|\n| **Purpose** | Give skilled hands the visibility and respect they've earned, and give clients a trustworthy way to hire them. |\n| **Promise** | See real work before you hire. |\n| **Personality** | Warm \u00b7 Practical \u00b7 Proud \u00b7 A little cheeky \u00b7 Honest |\n| **Feels like** | A well-used tape measure: reliable, handy, always in the toolbox. |\n| **Not** | Corporate, cold, flashy, salesy, \"tech-bro\". |\n\n**Why the tape measure?** Every trade uses one. It stands for precision, measuring up, and checking the work. The tape pulls out to reveal the name, the way Handzi reveals skilled people.\n\n---\n\n## 2. Logo\n\n### 2.1 Files (`/logo`)\n\n| File | Use |\n|---|---|\n| `handzi-logo-primary.svg` | Default. Light backgrounds (chalk, white). |\n| `handzi-logo-on-dark.svg` | Charcoal or very dark backgrounds. |\n| `handzi-logo-on-orange.svg` | Safety Orange backgrounds. |\n| `handzi-logo-on-sunshine.svg` | Sunshine yellow backgrounds. |\n| `handzi-logo-one-colour-black.svg` | Single-colour print, stamps, embroidery, vinyl, faxes, newspaper. |\n| `handzi-logo-one-colour-white.svg` | Single-colour reversed on dark or photos. |\n| `handzi-logo-stacked.svg` / `-stacked-dark.svg` | Square or tall spaces: profile pictures, splash screens, merch. |\n| `handzi-mark.svg` | The tape case alone: loaders, watermarks, tiny spaces. |\n| `handzi-app-icon.svg` (rounded) / `-square.svg` | App icon. Stores apply their own mask, so submit the **square** version. |\n| `favicon.svg` | Browser tab. |\n| `png/` | Ready-made PNGs: app icon 1024/512/192/180, favicon 32/16, logo 1200 px. |\n\nAll logo text is outlined (converted to shapes), so files render correctly without fonts installed.\n\n### 2.2 Anatomy\n1. **Tape case**: orange rounded square with a charcoal dial and tab. This is the **mark**.\n2. **Tape band**: sunshine yellow with measuring ticks along the top.\n3. **Wordmark**: \"handzi\", always lowercase, Bricolage Grotesque ExtraBold.\n4. **Hook**: the charcoal end bar on the right.\n\n### 2.3 Clear space\nKeep empty space around the logo equal to the **height of the tape case's dial ring (\u2248 \u00bd the case height)** on all sides. No text, edges or images inside that zone.\n\n### 2.4 Minimum size\n- Horizontal logo: **120 px wide** on screen / **30 mm** in print.\n- Stacked logo: **64 px wide** / 18 mm.\n- Below these sizes, use the **mark** or **app icon** alone.\n\n### 2.5 Don'ts\n- \u274c Don't recolour outside the approved versions.\n- \u274c Don't stretch, skew, rotate or add effects (shadows, glows, gradients, outlines).\n- \u274c Don't retype the wordmark in another font, or capitalise it (\"Handzi\" in running text is fine; the **logo** is always lowercase).\n- \u274c Don't separate the tape band from the case, or rearrange the parts.\n- \u274c Don't place the primary logo on busy photos: use the one-colour white version over a dark overlay.\n- \u274c Don't put the logo inside another shape (circle, badge) except the official app icon.\n\n---\n\n## 3. Colour\n\n### 3.1 Palette\n\n| Name | Hex | RGB | Role |\n|---|---|---|---|\n| **Safety Orange** | `#EA580C` | 234, 88, 12 | Brand hero colour: logo, illustrations, icons, large headings (24 px+), highlights on dark. |\n| **Brick** | `#C2410C` | 194, 65, 12 | Primary buttons, links, active tabs. The *usable* orange for small text. |\n| **Brick Dark** | `#9A3412` | 154, 52, 18 | Hover/pressed for Brick. |\n| **Sunshine** | `#FFC94A` | 255, 201, 74 | Highlights, ratings stars, badges, secondary buttons, the tape. |\n| **Sunshine Dark** | `#E0A520` | 224, 165, 32 | Hover/pressed for Sunshine. |\n| **Charcoal** | `#1C1F24` | 28, 31, 36 | Main text, dark backgrounds, nav. |\n| **Graphite** | `#33373E` | 51, 55, 62 | Dark-mode surfaces. |\n| **Steel** | `#5B6068` | 91, 96, 104 | Secondary text on light. |\n| **Mist** | `#A3A8B0` | 163, 168, 176 | Secondary text on dark only. |\n| **Line** | `#E2DED6` | 226, 222, 214 | Borders and dividers. |\n| **Chalk** | `#F7F5F0` | 247, 245, 240 | App background. |\n| **White** | `#FFFFFF` | 255, 255, 255 | Cards, inputs. |\n| Success | `#15803D` | | Verified, completed. |\n| Danger | `#B91C1C` | | Errors, destructive. |\n| Info | `#1D4ED8` | | Notices, in progress. |\n\n### 3.2 Proportion\nRoughly **60% Chalk/White \u00b7 25% Charcoal \u00b7 10% Orange/Brick \u00b7 5% Sunshine**. Orange is a spice, not the meal: use it where you want the eye to go.\n\n### 3.3 Approved text/background pairs (WCAG AA)\n\n| Text on background | Contrast | OK for |\n|---|---|---|\n| Charcoal on Chalk | 15.2 : 1 | All text |\n| Charcoal on Sunshine | 10.8 : 1 | All text |\n| Steel on Chalk | 5.8 : 1 | All text |\n| White on Brick | 5.2 : 1 | All text, primary buttons |\n| Brick on Chalk | 4.8 : 1 | Links, small text |\n| Charcoal on Orange | 4.6 : 1 | All text |\n| White on Charcoal | 16.5 : 1 | All text |\n| Mist on Charcoal | 6.9 : 1 | All text |\n| \u26a0\ufe0f White on Orange | 3.6 : 1 | **Large text (24 px+) and icons only** |\n| \u26a0\ufe0f Orange on Chalk | 3.3 : 1 | **Large text and icons only** |\n\n---\n\n## 4. Typography\n\n| Role | Font | Weight | Notes |\n|---|---|---|---|\n| Display & headings | **Bricolage Grotesque** | ExtraBold 800 | Letter-spacing \u22120.03em. Headlines, prices, ratings, big numbers. |\n| Body & UI | **Inter** | 400 / 500 / 600 / 700 | Everything else. |\n\nBoth are free (SIL Open Font License) and included in `/fonts`, and also on Google Fonts.\n\n### Type scale (mobile first)\n\n| Token | Size / line height | Font |\n|---|---|---|\n| display | 40 / 44 | Bricolage 800 |\n| h1 | 32 / 36 | Bricolage 800 |\n| h2 | 24 / 30 | Bricolage 800 |\n| h3 | 20 / 26 | Inter 600 |\n| body | 16 / 24 | Inter 400 |\n| small | 14 / 20 | Inter 400 |\n| caption | 12 / 16 | Inter 500 |\n\nRules: sentence case for headings and buttons (\"Book a handyman\", not \"Book A Handyman\"). Never use Bricolage for paragraphs. Never go below 12 px.\n\n---\n\n## 5. Layout, spacing and shape\n\n- **4 px grid.** Spacing steps: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64.\n- Screen side padding: **16 px** on phones, 24 px on tablets, max content width **1200 px** on web.\n- **Radius:** 6 (chips, small), 10 (buttons, inputs), 16 (cards), 24 (sheets, app icon feel), pill (tags, avatars' status).\n- **Shadows** are soft and rare: cards use `shadow.card`; floating buttons and menus use `shadow.raised`.\n- **Touch targets \u2265 48 \u00d7 48 px.**\n\n---\n\n## 6. UI components\n\n**Buttons** (height 48, radius 10, Inter 600 16 px, sentence case)\n- *Primary*: Brick background, white text, hover Brick Dark. One per screen ideally (\"Request quote\", \"Hire now\").\n- *Secondary*: Sunshine background, Charcoal text.\n- *Outline*: transparent, 1.5 px Charcoal border, Charcoal text.\n- *Ghost/text*: Brick text, no background.\n- *Destructive*: Danger background, white text.\n- Disabled: 40% opacity, no hover.\n\n**Inputs**: white, 1 px Line border, radius 10, height 48, 16 px text (prevents iOS zoom). Focus: 3 px Safety Orange ring. Labels always visible above the field (no placeholder-only labels). Errors in Danger with an icon and a clear sentence.\n\n**Cards**: white, radius 16, `shadow.card` or 1 px Line border, 16 px padding.\n\n**Handyman profile card (signature component)**\n- Avatar 88 px circle; name in Bricolage 800; trade(s) as chips.\n- Star rating in Sunshine with the number in Charcoal (\"4.8 \u00b7 37 jobs\").\n- **Verified** badge: Success green check + \"ID verified\" / \"Qualified\".\n- Portfolio strip: before/after photos, radius 10.\n- Area served + \"From R___/hour\" (or \"Quote on request\").\n- Primary action: \"Request quote\".\n\n**Badges & chips**: pill radius, caption or small text. Trade chips on Chalk with Charcoal text; \"Top rated\" on Sunshine; \"Verified\" on Success with white text.\n\n**Tape ticks motif**: the measuring-tick pattern (2 px Charcoal ticks every 12\u201316 px) can be used sparingly as a divider, progress bar or loading bar. Never as a full background.\n\n**Navigation**: bottom tab bar on mobile (Charcoal background, Mist icons, active tab in Sunshine), max 5 tabs: Home \u00b7 Search \u00b7 Jobs \u00b7 Messages \u00b7 Profile.\n\n**Icons**: one outline icon set (recommended: Lucide or Phosphor \"regular\"), 1.75\u20132 px stroke, rounded caps. 20 px in UI, 24 px in nav. No emoji as UI icons.\n\n**Empty states**: the Handzi mark + one friendly line + one action, e.g. *\"No jobs yet. Your next one is just a tap away.\"* \u2192 \"Find a handyman\".\n\n**Loading**: the tape case mark with the tape ticks sliding (\u2264 1 s loop), or skeleton cards in Line colour.\n\n---\n\n## 7. Imagery\n\n- **Real work, real people.** Hands at work, finished jobs, before/after shots, South African homes and streets.\n- Natural light, honest, not over-polished. No generic stock smiles, hard-hat clich\u00e9s or watermarks.\n- Show diversity of South Africans, genders and ages in the trades.\n- Overlays on photos: Charcoal at 50\u201370% opacity, white text on top.\n\n---\n\n## 8. Voice and tone\n\nTalk like a reliable local fundi who's proud of the work: **clear, warm, direct, a bit of humour, never slangy to the point of confusion.**\n\n| Do | Don't |\n|---|---|\n| \"Find a handyman you can trust.\" | \"Leverage our solutions to source vetted service providers.\" |\n| \"Show off your best work.\" | \"Upload portfolio assets.\" |\n| \"Your quote is on its way.\" | \"Request successfully submitted.\" |\n| \"Sorry, something broke on our side. Try again?\" | \"Error 500.\" |\n| \"Sharp! Job booked for Saturday, 9am.\" | \"BOOKING CONFIRMED!!!\" |\n\n- Address users as **you**; Handzi is **we**.\n- Use South African English spelling (colour, organise, centre) and **R** for Rand (R450, R1 200).\n- Local flavour (sharp, lekker, fundi) lightly, max one per screen, never in errors, payments or legal text.\n- Name the trades plainly: plumber, electrician, tiler, roofer, painter, paver, waterproofing, builder, general handyman.\n\n**Tagline:** *Skilled hands, one tap away.*\n**Alternates:** *See the work before you hire.* \u00b7 *Every trade, one tap.*\n\n---\n\n## 9. Accessibility\n\n- Meet **WCAG 2.2 AA**: use only the approved pairs in 3.3.\n- Never rely on colour alone (pair status colours with icons or text).\n- Touch targets \u2265 48 px; visible focus ring (3 px Safety Orange).\n- Support dynamic type / browser zoom to 200% without breaking.\n- Respect \"reduce motion\".\n- Every image has meaningful alt text (\"Tiled bathroom floor by Sipho M.\").\n\n---\n\n## 10. Dark mode\n\nBackground Charcoal, cards Graphite, text White, secondary text Mist. Primary buttons switch to **Safety Orange with Charcoal text**. Links become Sunshine. Use `handzi-logo-on-dark.svg`.\n\n---\n\n## 11. Applications (quick reference)\n\n| Where | Use |\n|---|---|\n| App store icon | `png/app-icon-1024.png` (square; the store rounds it). |\n| Android adaptive icon | Foreground: `handzi-mark.svg` at 66% of canvas; background: Sunshine `#FFC94A`. |\n| Web favicon | `favicon.svg` + `png/favicon-32.png`. |\n| Splash screen | Chalk background, `handzi-logo-stacked.svg` centred, 40% of screen width. |\n| Social profile | `handzi-logo-stacked.svg` on Chalk, or app icon. |\n| Vans, T-shirts, caps | Horizontal or one-colour versions; Charcoal or Orange garments. |\n| Business cards, invoices | Primary logo top-left; Inter for all text. |\n\n---\n\n## 12. Rules for AI coding assistants (Claude in VS Code etc.)\n\nWhen creating or editing any Handzi UI, you **must**:\n\n1. **Use the tokens, never raw values.** Import `tokens/tokens.css` (web) or map `tokens/tokens.json` into the app's theme (React Native `StyleSheet`/theme object, Flutter `ThemeData`, Tailwind via `tokens/tailwind.preset.js`). Do not hard-code hex colours, font sizes or spacing in components.\n2. **Use the logo files as-is.** Import SVGs from `handzi-brand/logo/`. Never recreate the logo in code, retype the wordmark, or recolour it. Pick the version by background (section 2.1).\n3. **Colour rules:**\n   - Primary buttons = Brick `#C2410C` with white text. Never white text on Safety Orange `#EA580C` below 24 px.\n   - Safety Orange is for graphics, icons, the logo and large headings.\n   - Sunshine is for highlights, stars, badges, secondary buttons (Charcoal text).\n   - Only use text/background pairs from section 3.3.\n4. **Type:** headings h1/h2/display in Bricolage Grotesque 800 with \u22120.03em tracking; everything else Inter. Sentence case. Min 12 px; inputs 16 px.\n5. **Spacing and shape:** 4 px grid; screen padding 16 px; radius 10 for buttons/inputs, 16 for cards; touch targets \u2265 48 px.\n6. **Copy:** write UI text in the Handzi voice (section 8), SA English, Rand as \"R1 200\". No lorem ipsum. Use clear placeholders like `[Handyman name]` if real data is missing.\n7. **Accessibility:** semantic elements, labels on every input, `aria-label` on icon-only buttons, alt text on images, visible focus ring, respect reduced motion.\n8. **Icons:** one outline set (Lucide or Phosphor). No emoji in UI.\n9. **Don't invent new brand colours, fonts, gradients or shadows.** If something is missing, choose the closest token and leave a `// TODO(brand):` comment explaining the gap.\n10. **Dark mode** uses the semantic variables (`--hz-bg`, `--hz-surface`, `--hz-text`, `--hz-primary`\u2026) so it switches automatically. Build with semantic tokens, not palette tokens, wherever possible.\n11. When unsure, prefer **simple, warm and practical** over flashy.\n\n---\n\n*Handzi CI Guide v1.0 \u00b7 November 2026 \u00b7 Fonts: Bricolage Grotesque and Inter, SIL Open Font License 1.1.*\n"</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+{
+const toast=document.getElementById('toast');let tt;
+const say=t=>{toast.textContent=t;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('on'),2600)};
+const copy=async t=>{try{await navigator.clipboard.writeText(t);say('Copied')}catch(e){say('Couldn’t copy here. Select the text and copy it manually.')}};
+document.getElementById('copySnip').addEventListener('click',()=>copy(document.getElementById('snip').textContent));
+document.getElementById('copyGuide').addEventListener('click',()=>copy(JSON.parse(document.getElementById('md').textContent)));
+document.querySelectorAll('.sw').forEach(b=>b.addEventListener('click',()=>copy(b.dataset.c)));
+let dl=null;
+const FILES=JSON.parse(document.getElementById('files').textContent);
+const getDl=async()=>{if(!dl)dl=await window.claude?.use?.('downloads');return dl};
+const err=(e,f)=>{const c=e&&e.code;if(c==='declined')return;if(c==='host_unavailable')say('This app can’t save files. Open this page in a browser or on a computer.');else if(c==='rate_limited')say('One moment, then try again.');else say('Couldn’t download '+f+'. Try again on a computer.')};
+document.getElementById('zipAll').addEventListener('click',async()=>{try{const d=await getDl();if(!d){say('Downloads aren’t available in this view. Open this page in a browser on your computer.');return}if(!window.JSZip){say('Still loading, try again in a second.');return}say('Packing the kit…');const z=new JSZip();for(const p of FILES){const r=await fetch('kit/'+p);if(!r.ok)throw {code:'fetch'};z.file('handzi-brand/'+p,await r.blob())}const blob=await z.generateAsync({type:'blob'});await d.save({filename:'handzi-brand.zip',data:blob});say('Saved handzi-brand.zip')}catch(e){err(e,'the kit')}});
+document.querySelectorAll('.dl[data-f]').forEach(b=>b.addEventListener('click',async()=>{
+  const f=b.dataset.f,name=f.split('/').pop();
+  try{
+    const r=await fetch(f);if(!r.ok)throw {code:'fetch'};const blob=await r.blob();
+    await getDl();
+    if(!dl){say('Downloads aren’t available in this view. Open this page in a browser on your computer.');return}
+    await dl.save({filename:name,data:blob});say('Saved '+name);
+  }catch(e){
+    const c=e&&e.code;
+    if(c==='declined')return;
+    if(c==='host_unavailable')say('This app can’t save files. Open this page in a browser or on a computer.');
+    else if(c==='rate_limited')say('One moment, then try again.');
+    else say('Couldn’t download '+f+'. Try again on a computer.');
+  }
+}));
+}
+</script>
+</body></html>

@@ -1,0 +1,19 @@
+{
+  "name": "handyconnect",
+  "private": true,
+  "version": "0.1.0",
+  "description": "HandyConnect: marketplace connecting clients with verified handymen (South Africa)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "api": "npm run dev -w apps/api",
+    "mobile": "npm run start -w apps/mobile",
+    "admin": "npm run dev -w apps/admin",
+    "test": "npm test -w apps/api",
+    "seed": "npm run seed -w apps/api",
+    "db:up": "docker compose up -d mongo",
+    "db:down": "docker compose down"
+  }
+}

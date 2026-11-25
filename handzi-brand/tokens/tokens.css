@@ -1,0 +1,112 @@
+/* Handzi design tokens v1.0 — import once at the app root. Mirrors tokens.json. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Brand */
+  --hz-orange: #EA580C;        /* graphics, logo, icons, large text only */
+  --hz-brick: #C2410C;         /* primary buttons (white text), links */
+  --hz-brick-dark: #9A3412;    /* primary hover/pressed */
+  --hz-sunshine: #FFC94A;      /* highlights, badges, stars, secondary buttons */
+  --hz-sunshine-dark: #E0A520;
+
+  /* Neutrals */
+  --hz-charcoal: #1C1F24;
+  --hz-graphite: #33373E;
+  --hz-steel: #5B6068;
+  --hz-mist: #A3A8B0;
+  --hz-line: #E2DED6;
+  --hz-chalk: #F7F5F0;
+  --hz-white: #FFFFFF;
+
+  /* Status */
+  --hz-success: #15803D;
+  --hz-danger: #B91C1C;
+  --hz-info: #1D4ED8;
+
+  /* Semantic (light theme) */
+  --hz-bg: var(--hz-chalk);
+  --hz-surface: var(--hz-white);
+  --hz-text: var(--hz-charcoal);
+  --hz-text-muted: var(--hz-steel);
+  --hz-border: var(--hz-line);
+  --hz-primary: var(--hz-brick);
+  --hz-primary-hover: var(--hz-brick-dark);
+  --hz-on-primary: var(--hz-white);
+  --hz-accent: var(--hz-sunshine);
+  --hz-on-accent: var(--hz-charcoal);
+  --hz-link: var(--hz-brick);
+  --hz-focus: var(--hz-orange);
+
+  /* Type */
+  --hz-font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --hz-font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --hz-text-display: 40px/44px;
+  --hz-text-h1: 32px/36px;
+  --hz-text-h2: 24px/30px;
+  --hz-text-h3: 20px/26px;
+  --hz-text-body: 16px/24px;
+  --hz-text-small: 14px/20px;
+  --hz-text-caption: 12px/16px;
+
+  /* Spacing (4px grid) */
+  --hz-space-1: 4px;  --hz-space-2: 8px;  --hz-space-3: 12px; --hz-space-4: 16px;
+  --hz-space-5: 20px; --hz-space-6: 24px; --hz-space-8: 32px; --hz-space-10: 40px;
+  --hz-space-12: 48px; --hz-space-16: 64px;
+
+  /* Radius */
+  --hz-radius-sm: 6px; --hz-radius-md: 10px; --hz-radius-lg: 16px; --hz-radius-xl: 24px; --hz-radius-pill: 999px;
+
+  /* Shadow */
+  --hz-shadow-card: 0 1px 2px rgba(28,31,36,.06), 0 2px 8px rgba(28,31,36,.06);
+  --hz-shadow-raised: 0 4px 16px rgba(28,31,36,.12);
+  --hz-shadow-sheet: 0 -8px 32px rgba(28,31,36,.16);
+
+  /* Motion */
+  --hz-dur-fast: 120ms; --hz-dur-base: 200ms; --hz-dur-slow: 320ms;
+  --hz-ease: cubic-bezier(.2,.8,.2,1);
+
+  /* Sizes */
+  --hz-touch: 48px;
+}
+
+/* Dark theme: add data-theme="dark" to <html>, or rely on the OS setting */
+[data-theme="dark"] {
+  --hz-bg: var(--hz-charcoal);
+  --hz-surface: var(--hz-graphite);
+  --hz-text: var(--hz-white);
+  --hz-text-muted: var(--hz-mist);
+  --hz-border: #454A52;
+  --hz-primary: var(--hz-orange);       /* charcoal text on orange in dark mode */
+  --hz-primary-hover: #F97316;
+  --hz-on-primary: var(--hz-charcoal);
+  --hz-link: var(--hz-sunshine);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --hz-bg: var(--hz-charcoal);
+    --hz-surface: var(--hz-graphite);
+    --hz-text: var(--hz-white);
+    --hz-text-muted: var(--hz-mist);
+    --hz-border: #454A52;
+    --hz-primary: var(--hz-orange);
+    --hz-primary-hover: #F97316;
+    --hz-on-primary: var(--hz-charcoal);
+    --hz-link: var(--hz-sunshine);
+  }
+}
+
+body {
+  background: var(--hz-bg);
+  color: var(--hz-text);
+  font: 400 var(--hz-text-body) var(--hz-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, .hz-display {
+  font-family: var(--hz-font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+:focus-visible { outline: 3px solid var(--hz-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

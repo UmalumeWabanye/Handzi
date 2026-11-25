@@ -1,0 +1,15 @@
+/* Brand tokens + fonts (Bricolage Grotesque 800, Inter) from the Handzi kit. Must come before Tailwind. */
+@import '../../../handzi-brand/tokens/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { font-size: 16px; }
+  /* BRAND.md §9: visible 3px Safety Orange focus ring. */
+  :focus-visible { outline: 3px solid theme('colors.hz.orange'); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }
+  }
+}

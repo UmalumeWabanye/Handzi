@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "Handzi",
+    "slug": "handzi",
+    "scheme": "handzi",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "za.co.handzi.app"
+    },
+    "android": {
+      "package": "za.co.handzi.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/brand/adaptive-foreground-1024.png",
+        "backgroundColor": "#FFC94A"
+      }
+    },
+    "experiments": {
+      "typedRoutes": true
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-font",
+      "expo-image",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F7F5F0",
+          "image": "./assets/brand/logo-stacked-800.png",
+          "imageWidth": 160,
+          "resizeMode": "contain"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Handzi uses your photos so you can show off your work and add a profile photo.",
+          "cameraPermission": "Handzi uses the camera for profile photos, job photos and ID verification."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Handzi uses your location to show handymen and jobs near you."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#EA580C"
+        }
+      ]
+    ],
+    "backgroundColor": "#F7F5F0",
+    "icon": "./assets/brand/app-icon-1024.png",
+    "web": {
+      "favicon": "./assets/brand/app-icon-1024.png"
+    }
+  }
+}
