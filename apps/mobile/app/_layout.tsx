@@ -69,7 +69,8 @@ function RootNavigator() {
 
             {/* Jobs: clients post and review quotes; handymen browse and quote */}
             <Stack.Protected guard={onboarded && mode === 'client'}>
-              <Stack.Screen name="post-job" options={{ animation: 'slide_from_bottom', gestureEnabled: false }} />
+              <Stack.Screen name="services" />
+            <Stack.Screen name="post-job" options={{ animation: 'slide_from_bottom', gestureEnabled: false }} />
               <Stack.Screen name="jobs/[id]" />
             </Stack.Protected>
             <Stack.Protected guard={onboarded && mode === 'handyman'}>
@@ -80,6 +81,7 @@ function RootNavigator() {
 
             <Stack.Protected guard={onboarded}>
               <Stack.Screen name="chat/[id]" />
+            <Stack.Screen name="service/[id]" />
             <Stack.Screen name="booking/[id]" />
               <Stack.Screen name="notifications" />
               <Stack.Screen name="handyman/[id]/index" />
@@ -92,6 +94,7 @@ function RootNavigator() {
               <Stack.Screen name="editor/work" options={{ presentation: 'modal' }} />
               <Stack.Screen name="editor/project" options={{ presentation: 'modal' }} />
               <Stack.Screen name="editor/certification" options={{ presentation: 'modal' }} />
+            <Stack.Screen name="service-editor" options={{ presentation: 'modal' }} />
             </Stack.Protected>
           </Stack>
         </RealtimeProvider>

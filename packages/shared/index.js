@@ -139,7 +139,13 @@ const NOTIFICATION_TYPES = Object.freeze({
   VERIFICATION_APPROVED: 'verification_approved',
   VERIFICATION_REJECTED: 'verification_rejected',
   DISPUTE_RESOLVED: 'dispute_resolved',
+  SERVICE_BOOKED: 'service_booked',
 });
+
+// Service packages (Fiverr-style listings).
+const SERVICE_MAX_TIERS = 3;
+const SERVICE_SEARCH_RADII = Object.freeze([5, 10, 25, 50, 100]); // km
+const SERVICE_DESCRIPTION_MIN = 20;
 
 const MESSAGE_MAX_IMAGES = 4;
 
@@ -177,6 +183,9 @@ module.exports = {
   NOTIFICATION_TYPES,
   MESSAGE_MAX_IMAGES,
   REVIEW_DIRECTION,
+  SERVICE_MAX_TIERS,
+  SERVICE_SEARCH_RADII,
+  SERVICE_DESCRIPTION_MIN,
   handymanChecklist,
   CURRENCY,
   DEFAULT_COMMISSION_PERCENT,

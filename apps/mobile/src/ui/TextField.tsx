@@ -71,7 +71,7 @@ export const TextField = forwardRef<TextInputInstance, Props>(function TextField
             focus.value = withTiming(0, { duration: duration.fast, easing: ease.inOut });
             onBlur?.(e);
           }}
-          style={[styles.input, multiline && styles.inputMultiline, style]}
+          style={[multiline ? styles.inputMultiline : styles.input, style]}
           {...rest}
         />
       </View>
@@ -110,6 +110,18 @@ const styles = StyleSheet.create({
   },
   frameMultiline: { alignItems: 'flex-start', paddingVertical: space.md },
   ring: { position: 'absolute', top: -4, left: -4, right: -4, bottom: -4, borderRadius: radius.md + 4, borderWidth: 3, borderColor: colors.focus },
-  input: { flex: 1, ...type.body, color: colors.ink, paddingVertical: space.md },
-  inputMultiline: { minHeight: 110, textAlignVertical: 'top', paddingVertical: 0 },
+  // Single line: no lineHeight (on a TextInput it pushes the text off-centre on iOS and clips it on Android);
+  // the input fills the field's height and centres its text instead.
+  input: {
+    flex: 1,
+    alignSelf: 'stretch',
+    fontSize: type.body.fontSize,
+    fontFamily: type.body.fontFamily,
+    color: colors.ink,
+    paddingVertical: 0,
+    textAlignVertical: 'center',
+    includeFontPadding: false,
+  },
+  // Multi-line keeps the body line height for readable paragraphs.
+  inputMultiline: { flex: 1, ...type.body, color: colors.ink, minHeight: 110, textAlignVertical: 'top', paddingVertical: 0 },
 });

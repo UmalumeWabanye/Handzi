@@ -41,4 +41,4 @@ function resolvePrivate(name, user) {
 const ownsPrivateUrl = (url, userId) =>
   typeof url === 'string' && url.startsWith(`/api/v1/uploads/private/${userId}-`);
 
-module.exports = { save, resolvePrivate, ownsPrivateUrl, PUBLIC_DIR, ACCEPTED_TYPES: Object.keys(EXT) };
+module.exports = { save, resolvePrivate, ownsPrivateUrl, PUBLIC_DIR, PRIVATE_DIR, ACCEPTED_TYPES: Object.keys(EXT) };

@@ -8,7 +8,7 @@ import { useCategories, useHandymen } from '@/api/hooks';
 import { useAuth } from '@/context/AuthContext';
 import { HandymanCard } from '@/features/handyman/HandymanCard';
 import { NotificationBell } from '@/features/shared/NotificationBell';
-import { Avatar, Banner, Button, CardSkeleton, Chip, EmptyState, Screen, Section, Text, enter, radius, space, useAccent, ScalePressable } from '@/ui';
+import { Avatar, Banner, colors, Button, CardSkeleton, Chip, EmptyState, Screen, Section, Text, enter, radius, space, useAccent, ScalePressable } from '@/ui';
 
 export default function ClientHome() {
   const { user } = useAuth();
@@ -48,6 +48,22 @@ export default function ClientHome() {
             <Avatar uri={user?.avatar} name={`${user?.firstName} ${user?.lastName}`} size={48} />
           </ScalePressable>
         </View>
+      </Animated.View>
+
+      <Animated.View entering={enter.up(40)}>
+        <ScalePressable
+          onPress={() => router.push('/services')}
+          style={styles.search}
+          scaleTo={0.98}
+          accessibilityRole="search"
+          accessibilityLabel="Search services"
+        >
+          <Ionicons name="search" size={20} color={colors.inkSecondary} />
+          <Text variant="body" tone="secondary" style={{ flex: 1 }}>
+            Search services...
+          </Text>
+          <Ionicons name="options-outline" size={20} color={colors.inkSecondary} />
+        </ScalePressable>
       </Animated.View>
 
       <Animated.View entering={enter.up(80)}>
@@ -117,6 +133,17 @@ export default function ClientHome() {
 
 const styles = StyleSheet.create({
   header: { flexDirection: 'row', alignItems: 'flex-start', gap: space.md },
+  search: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: space.sm,
+    minHeight: 52,
+    paddingHorizontal: space.lg,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+  },
   place: { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: space.xs, alignSelf: 'flex-start' },
   cta: { borderRadius: radius.lg, padding: space.xl, gap: space.sm, overflow: 'hidden' },
   ctaButton: {

@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { errorMessage } from '@/api/client';
-import { useHandymanReviews, usePublicHandyman } from '@/api/hooks';
+import { useHandymanReviews, useHandymanServices, usePublicHandyman } from '@/api/hooks';
 import { useAuth } from '@/context/AuthContext';
 import { ProfileView } from '@/features/handyman/ProfileView';
 import { Banner, Button, Screen, ScreenHeader, Skeleton, space } from '@/ui';
@@ -13,6 +13,7 @@ export default function PublicProfile() {
   const { user } = useAuth();
   const { data, isLoading, error, refetch } = usePublicHandyman(id);
   const reviews = useHandymanReviews(id);
+  const services = useHandymanServices(id);
   const isMe = user?.id === id;
 
   return (
@@ -31,7 +32,12 @@ export default function PublicProfile() {
       ) : (
         <>
           {isMe && <Banner tone="info" message="This is exactly what clients see when you quote on their jobs." icon="eye-outline" />}
-          <ProfileView h={data} reviews={reviews.data} onProjectPress={(projectId) => router.push({ pathname: '/handyman/[id]/project/[projectId]', params: { id, projectId } })} />
+          <ProfileView
+            h={data}
+            reviews={reviews.data}
+            services={services.data}
+            onServicePress={(sid) => router.push({ pathname: '/service/[id]', params: { id: sid } })}
+            onProjectPress={(projectId) => router.push({ pathname: '/handyman/[id]/project/[projectId]', params: { id, projectId } })} />
         </>
       )}
     </Screen>

@@ -9,7 +9,8 @@
     "dev": "nodemon src/server.js",
     "seed": "node src/seeds/index.js",
     "test": "jest --runInBand",
-    "dev:verify": "node src/scripts/verify-handyman.js"
+    "dev:verify": "node src/scripts/verify-handyman.js",
+    "seed:demo": "node src/seeds/demo.js"
   },
   "dependencies": {
     "@handyconnect/shared": "*",

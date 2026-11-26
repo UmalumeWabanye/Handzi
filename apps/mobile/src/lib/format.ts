@@ -64,3 +64,9 @@ export function budgetLabel(b?: { min?: number | null; max?: number | null } | n
   if (b.max != null) return `Up to ${rand(b.max)}`;
   return `From ${rand(b.min)}`;
 }
+
+/** "From R4 500", "R380/hr" or "Quote on request" for a service. */
+export function servicePrice(pricingType: string, fromPrice: number | null | undefined) {
+  if (pricingType === 'quote' || fromPrice == null) return 'Quote on request';
+  return pricingType === 'hourly' ? `${rand(fromPrice)}/hr` : `From ${rand(fromPrice)}`;
+}

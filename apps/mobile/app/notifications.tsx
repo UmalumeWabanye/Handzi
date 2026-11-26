@@ -31,6 +31,7 @@ const META: Record<string, { icon: keyof typeof Ionicons.glyphMap; color: string
   verification_approved: { icon: 'shield-checkmark', color: colors.success },
   verification_rejected: { icon: 'shield-outline', color: colors.danger },
   dispute_resolved: { icon: 'checkmark-done-circle', color: palette.orange },
+  service_booked: { icon: 'calendar', color: palette.orange },
 };
 
 function Row({ n, index, onPress }: { n: AppNotification; index: number; onPress: () => void }) {

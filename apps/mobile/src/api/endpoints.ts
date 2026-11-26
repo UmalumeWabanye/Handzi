@@ -1,4 +1,4 @@
-import type { JobUrgency, Mode, UploadKind } from '@handyconnect/shared';
+import type { JobUrgency, Mode, PricingType, UploadKind } from '@handyconnect/shared';
 import { api } from './client';
 import type {
   AppNotification,
@@ -7,6 +7,10 @@ import type {
   BookingSummary,
   Earnings,
   PublicReview,
+  Service,
+  ServiceCard,
+  ServiceDetail,
+  ServiceTier,
   Category,
   ChatMessage,
   ConversationSummary,
@@ -165,4 +169,30 @@ export const bookingApi = {
   dispute: (id: string, reason: string) => api.post<{ booking: BookingDetail }>(`/bookings/${id}/dispute`, { reason }).then((r) => r.data.booking),
   review: (id: string, rating: number, text?: string) => api.post<{ booking: BookingDetail }>(`/bookings/${id}/review`, { rating, text }).then((r) => r.data.booking),
   earnings: () => api.get<Earnings>('/bookings/earnings').then((r) => r.data),
+};
+
+export type ServiceInput = {
+  category: string;
+  subcategory?: string | null;
+  title: string;
+  description: string;
+  photos: string[];
+  pricingType: PricingType;
+  tiers: Omit<ServiceTier, '_id'>[];
+  active?: boolean;
+};
+
+export type ServiceSearch = { q?: string; category?: string; lat?: number; lng?: number; radiusKm: number };
+
+export const serviceApi = {
+  mine: () => api.get<{ services: Service[]; visible: boolean }>('/services/mine').then((r) => r.data),
+  create: (input: ServiceInput) => api.post<{ service: Service }>('/services', input).then((r) => r.data.service),
+  update: (id: string, input: Partial<ServiceInput>) => api.patch<{ service: Service }>(`/services/${id}`, input).then((r) => r.data.service),
+  remove: (id: string) => api.delete(`/services/${id}`),
+  search: (params: ServiceSearch) =>
+    api.get<{ services: ServiceCard[]; radiusKm: number }>('/services/search', { params }).then((r) => r.data),
+  byHandyman: (userId: string) => api.get<{ services: ServiceCard[] }>(`/services/by/${userId}`).then((r) => r.data.services),
+  get: (id: string) => api.get<{ service: ServiceDetail }>(`/services/${id}`).then((r) => r.data.service),
+  book: (id: string, input: { tierId: string; scheduledFor?: string | null; note?: string }) =>
+    api.post<{ booking: { _id: string; amount: number; title: string } }>(`/services/${id}/book`, input).then((r) => r.data.booking),
 };

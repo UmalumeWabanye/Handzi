@@ -9,7 +9,7 @@ import { useJob, usePublicSettings, useSaveQuote } from '@/api/hooks';
 import type { Job } from '@/api/types';
 import { haptic } from '@/lib/haptics';
 import { budgetLabel, rand } from '@/lib/format';
-import { Banner, Button, Card, Chip, ChipGroup, DayPicker, FormBody, ScreenHeader, Skeleton, Text, TextField, colors, enter, layout, space, useAccent, useToast } from '@/ui';
+import { Banner, Button, Card, Chip, ChipGroup, DayPicker, FormBody, ScreenHeader, Skeleton, Text, TextField, colors, enter, fonts, layout, space, useAccent, useToast } from '@/ui';
 
 const MIN_AMOUNT = 50;
 
@@ -77,7 +77,7 @@ function QuoteForm({ job }: { job: Job }) {
           onChangeText={(t) => setAmount(t.replace(/\D/g, '').slice(0, 7))}
           keyboardType="number-pad"
           placeholder="0"
-          style={{ fontSize: 22, fontWeight: '700' }}
+          style={{ fontSize: 22, fontFamily: fonts.display }}
           error={tried ? errors.amount : null}
           hint="Include labour, materials and call-out."
         />

@@ -49,11 +49,14 @@ export declare const NOTIFICATION_TYPES: {
   readonly QUOTE_ACCEPTED: 'quote_accepted'; readonly QUOTE_REJECTED: 'quote_rejected'; readonly JOB_CANCELLED: 'job_cancelled'; readonly MESSAGE: 'message';
   readonly BOOKING_PAID: 'booking_paid'; readonly JOB_STARTED: 'job_started'; readonly JOB_COMPLETED: 'job_completed'; readonly PAYMENT_RELEASED: 'payment_released';
   readonly BOOKING_CANCELLED: 'booking_cancelled'; readonly DISPUTE_OPENED: 'dispute_opened'; readonly REVIEW_RECEIVED: 'review_received';
-  readonly VERIFICATION_APPROVED: 'verification_approved'; readonly VERIFICATION_REJECTED: 'verification_rejected'; readonly DISPUTE_RESOLVED: 'dispute_resolved';
+  readonly VERIFICATION_APPROVED: 'verification_approved'; readonly VERIFICATION_REJECTED: 'verification_rejected'; readonly DISPUTE_RESOLVED: 'dispute_resolved'; readonly SERVICE_BOOKED: 'service_booked';
 };
 export type NotificationType = ValueOf<typeof NOTIFICATION_TYPES>;
 export declare const MESSAGE_MAX_IMAGES: number;
 export declare const REVIEW_DIRECTION: { readonly CLIENT_TO_HANDYMAN: 'client_to_handyman'; readonly HANDYMAN_TO_CLIENT: 'handyman_to_client' };
+export declare const SERVICE_MAX_TIERS: number;
+export declare const SERVICE_SEARCH_RADII: readonly number[];
+export declare const SERVICE_DESCRIPTION_MIN: number;
 export declare const CURRENCY: 'ZAR';
 export declare const DEFAULT_COMMISSION_PERCENT: number;
 export declare const DEFAULT_AUTO_CONFIRM_HOURS: number;

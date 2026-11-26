@@ -44,6 +44,7 @@ function createApp() {
   app.use('/api/v1/notifications', require('./routes/notification.routes'));
   app.use('/api/v1/reports', require('./routes/report.routes'));
   app.use('/api/v1/bookings', require('./routes/booking.routes'));
+  app.use('/api/v1/services', require('./routes/service.routes'));
   app.use('/api/v1/admin', require('./routes/admin.routes'));
 
   app.use(notFound);

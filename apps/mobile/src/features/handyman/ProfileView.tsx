@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
-import type { HandymanProfile, PublicHandyman, PublicReview, User } from '@/api/types';
+import type { HandymanProfile, PublicHandyman, PublicReview, ServiceCard as ServiceCardT, User } from '@/api/types';
+import { ServiceCard } from '@/features/services/ServiceCard';
 import { monthYear, placeLabel, plural, rand, timeAgo } from '@/lib/format';
 import { Avatar, Badge, Card, Chip, ChipRow, EmptyState, ScalePressable, Section, StarRating, Text, colors, enter as enterPreset, radius, space, useAccent } from '@/ui';
 import { CertificationRow, ProjectTile, WorkTimelineItem } from './ProfileBlocks';
@@ -15,6 +16,8 @@ type Props = {
   onEdit?: (section: ProfileSectionKey) => void; // shows "Edit" on each section (own profile)
   pendingVerification?: boolean;
   reviews?: PublicReview[];
+  services?: ServiceCardT[];
+  onServicePress?: (id: string) => void;
 };
 
 /** Convert the owner's full profile into the public shape so they can preview exactly what clients see. */
@@ -59,7 +62,7 @@ function Stat({ value, label, icon }: { value: string; label: string; icon?: key
   );
 }
 
-export function ProfileView({ h, onProjectPress, onEdit, pendingVerification, reviews }: Props) {
+export function ProfileView({ h, onProjectPress, onEdit, pendingVerification, reviews, services, onServicePress }: Props) {
   const accent = useAccent();
   const [expanded, setExpanded] = useState(false);
   const name = `${h.firstName} ${h.lastName}`;
@@ -192,6 +195,19 @@ export function ProfileView({ h, onProjectPress, onEdit, pendingVerification, re
           )}
         </Section>
       </Animated.View>
+
+      {/* Service packages */}
+      {services && services.length > 0 && (
+        <Animated.View entering={enter(4)}>
+          <Section title="Services" subtitle="Book a set-price package">
+            <View style={{ gap: space.sm }}>
+              {services.map((s, i) => (
+                <ServiceCard key={s._id} s={s} index={i} showHandyman={false} showStatus={!!onEdit} onPress={() => onServicePress?.(s._id)} />
+              ))}
+            </View>
+          </Section>
+        </Animated.View>
+      )}
 
       {/* Portfolio */}
       <Animated.View entering={enter(4)}>

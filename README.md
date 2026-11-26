@@ -24,6 +24,8 @@ colima start                     # Docker runtime (once per boot)
 npm run db:up                    # MongoDB in Docker (or point MONGODB_URI at Atlas)
 cp apps/api/.env.example apps/api/.env   # already done once; edit secrets
 npm run seed                     # categories, platform settings, admin user
+npm run seed:demo                # demo handymen, clients, jobs, bookings… (password Demo1234!); re-run any time
+npm run seed:demo -- --reset     # remove only the demo data (accounts ending @demo.handzi.co.za)
 npm run api                      # http://localhost:5000
 npm run mobile                   # Expo dev server; open in Expo Go
 npm run admin                    # admin dashboard on http://localhost:5173 (log in with ADMIN_EMAIL / ADMIN_PASSWORD)
@@ -72,6 +74,11 @@ On a physical phone the app talks to the API on your computer's LAN IP at port 5
 | POST | `/bookings/:id/{start,complete,confirm}` | Handyman starts/finishes; client confirms → payout released |
 | POST | `/bookings/:id/{cancel,dispute,review}` | Cancel before work starts (refund), report a problem (payout frozen), rate each other |
 | GET | `/bookings/earnings`, `/handymen/:id/reviews` | Handyman earnings; public client reviews |
+| GET/POST | `/services/mine`, `/services` | Handyman's service packages (fixed packages, hourly or quote on request; up to 3 tiers) |
+| PATCH/DELETE | `/services/:id` | Edit, pause (`active: false`) or delete |
+| GET | `/services/search` | `q`, `category`, `lat`/`lng` (default: client's home), `radiusKm` (5–100). Verified handymen only, nearest first |
+| GET | `/services/:id`, `/services/by/:userId` | Service page; a handyman's services for their profile |
+| POST | `/services/:id/book` | Book a package: creates a job, accepted quote and a booking awaiting payment |
 
 **Socket.io** (same host, `auth: { token }`): server emits `notification:new`, `message:new`, `conversation:read`, `typing`;
 clients emit `typing`, `conversation:focus` / `conversation:blur` (no push for a chat that's on screen).

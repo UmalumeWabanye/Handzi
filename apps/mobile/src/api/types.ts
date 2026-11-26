@@ -1,4 +1,4 @@
-import type { BookingStatus, ChecklistItem, EmploymentType, JobStatus, JobUrgency, Mode, NotificationType, PaymentStatus, QuoteStatus, Role, UserStatus, VerificationStatus } from '@handyconnect/shared';
+import type { BookingStatus, PricingType, ChecklistItem, EmploymentType, JobStatus, JobUrgency, Mode, NotificationType, PaymentStatus, QuoteStatus, Role, UserStatus, VerificationStatus } from '@handyconnect/shared';
 
 export type GeoPoint = {
   type: 'Point';
@@ -291,4 +291,57 @@ export type PublicReview = {
   createdAt: string;
   reviewer: { firstName: string; avatar?: string } | null;
   jobTitle?: string;
+};
+
+// ---- Service packages ----
+
+export type ServiceTier = { _id: string; name: string; price: number; description?: string; estimatedHours?: number };
+
+/** A service as its owner edits it. */
+export type Service = {
+  _id: string;
+  handyman: string;
+  category: CategoryRef;
+  subcategory?: string;
+  title: string;
+  description: string;
+  photos: string[];
+  pricingType: PricingType;
+  tiers: ServiceTier[];
+  active: boolean;
+  createdAt: string;
+};
+
+type ServiceHandyman = {
+  userId: string;
+  firstName: string;
+  lastName: string;
+  avatar?: string;
+  verified: boolean;
+  stats?: Stats;
+  place: Place | null;
+};
+
+/** A service in search results and on profiles. */
+export type ServiceCard = {
+  _id: string;
+  title: string;
+  category: CategoryRef;
+  subcategory?: string;
+  photo?: string;
+  pricingType: PricingType;
+  fromPrice: number | null;
+  tierCount: number;
+  active: boolean;
+  distanceKm?: number;
+  handyman: ServiceHandyman;
+};
+
+/** A service as a client views it. */
+export type ServiceDetail = Omit<Service, 'handyman'> & {
+  handyman: ServiceHandyman;
+  distanceKm?: number;
+  serviceRadiusKm?: number;
+  bookable: boolean;
+  isOwner: boolean;
 };

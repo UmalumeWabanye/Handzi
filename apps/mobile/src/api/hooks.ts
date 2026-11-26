@@ -1,6 +1,6 @@
-import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { keepPreviousData, useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type { Mode } from '@handyconnect/shared';
-import { bookingApi, BookingAction, categoryApi, chatApi, handymanApi, jobApi, notificationApi, JobInput, ListItemInput, ListName, ProfileInput, quoteApi, QuoteInput, settingsApi } from './endpoints';
+import { bookingApi, BookingAction, categoryApi, chatApi, serviceApi, ServiceInput, ServiceSearch, handymanApi, jobApi, notificationApi, JobInput, ListItemInput, ListName, ProfileInput, quoteApi, QuoteInput, settingsApi } from './endpoints';
 import type { MyProfileResponse } from './types';
 
 export const keys = {
@@ -24,6 +24,10 @@ export const keys = {
   booking: (id: string) => ['bookings', 'detail', id] as const,
   earnings: ['bookings', 'earnings'] as const,
   reviews: (userId: string) => ['handyman', userId, 'reviews'] as const,
+  myServices: ['services', 'mine'] as const,
+  serviceSearch: (p: ServiceSearch) => ['services', 'search', p] as const,
+  service: (id: string) => ['services', 'detail', id] as const,
+  handymanServices: (userId: string) => ['services', 'by', userId] as const,
 };
 
 export const useCategories = () => useQuery({ queryKey: keys.categories, queryFn: categoryApi.list, staleTime: 60 * 60 * 1000 });
@@ -136,3 +140,33 @@ export const useBookingAction = () => useBookingMutation(({ id, action }: { id: 
 export const useCancelBooking = () => useBookingMutation(({ id, reason }: { id: string; reason?: string }) => bookingApi.cancel(id, reason));
 export const useDisputeBooking = () => useBookingMutation(({ id, reason }: { id: string; reason: string }) => bookingApi.dispute(id, reason));
 export const useReviewBooking = () => useBookingMutation(({ id, rating, text }: { id: string; rating: number; text?: string }) => bookingApi.review(id, rating, text));
+
+// ---- Service packages ----
+
+export const useMyServices = () => useQuery({ queryKey: keys.myServices, queryFn: serviceApi.mine });
+export const useService = (id: string) => useQuery({ queryKey: keys.service(id), queryFn: () => serviceApi.get(id), enabled: !!id });
+export const useHandymanServices = (userId: string) =>
+  useQuery({ queryKey: keys.handymanServices(userId), queryFn: () => serviceApi.byHandyman(userId), enabled: !!userId });
+/** Keeps the previous results on screen while a new search loads (no flash between filters). */
+export const useServiceSearch = (params: ServiceSearch, enabled = true) =>
+  useQuery({ queryKey: keys.serviceSearch(params), queryFn: () => serviceApi.search(params), placeholderData: keepPreviousData, enabled });
+
+function useServicesMutation<V, R>(fn: (v: V) => Promise<R>) {
+  const qc = useQueryClient();
+  return useMutation({ mutationFn: fn, onSuccess: () => qc.invalidateQueries({ queryKey: ['services'] }) });
+}
+export const useSaveService = () =>
+  useServicesMutation(({ id, input }: { id?: string; input: ServiceInput }) => (id ? serviceApi.update(id, input) : serviceApi.create(input)));
+export const useToggleService = () => useServicesMutation(({ id, active }: { id: string; active: boolean }) => serviceApi.update(id, { active }));
+export const useDeleteService = () => useServicesMutation((id: string) => serviceApi.remove(id));
+export function useBookService() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, tierId, scheduledFor, note }: { id: string; tierId: string; scheduledFor?: string | null; note?: string }) =>
+      serviceApi.book(id, { tierId, scheduledFor, note }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['bookings'] });
+      qc.invalidateQueries({ queryKey: ['jobs'] });
+    },
+  });
+}
